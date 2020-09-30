@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/python/python7/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/python/python4/</loc>
+    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/python/python5/</loc>
+    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/python/python6/</loc>
+    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/missing-semester-in-computer-science-/lec01_shell/</loc>
+    <lastmod>2020-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/python/python1/</loc>
+    <lastmod>2020-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/c&#43;&#43;_primer_chap5/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/c&#43;&#43;_primer_chap4/</loc>
+    <lastmod>2020-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/c&#43;&#43;_primer_chap3/</loc>
+    <lastmod>2020-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/c&#43;&#43;_compiling_complex_program/</loc>
+    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/c&#43;&#43;_primer_chap1/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>/author/zhi-wang/</loc>
+  </url>
+  
+</urlset>

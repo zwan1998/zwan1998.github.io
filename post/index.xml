@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Academic</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>python07 GUI Automation</title>
+      <link>/post/python/python7/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python/python7/</guid>
+      <description>&lt;h2 id=&#34;controlling-the-mouse-from-python&#34;&gt;Controlling the mouse from python&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;In programming, (0,0) is the top left corner, Y-coordinates &amp;lsquo;increases&amp;rsquo; going down, X-coordinates &amp;lsquo;increases&amp;rsquo; going right.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pyautogui
+pyautogui.size() # resolution of current screen, returns a 2-tuple (width,height)
+pyautogui.position() # returns the current position of mouse 
+pyautogui.moveTo(width,height) # move mouse to (width,height)
+pyautogui.moveTo(width,height,duration = 1.5) # move mouse to (width,height), and move the mouse gradually, taking total 1.5s.
+pyautogui.moveRel(delta_width,delta_height) # move relatively.
+pyautogui.click(width,height) # click the mouse, ingore width and height may click the current pos. 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Other useful methods: &lt;code&gt;pyautogui.dragTo()&lt;/code&gt;, &lt;code&gt;pyautogui.dragRel()&lt;/code&gt;, &lt;code&gt;pyautogui.doubleclick()&lt;/code&gt;, &lt;code&gt;pyautogui.rightclick()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyautogui&lt;/code&gt; module have a safeguard, if may raise an exception when the mouse ia at (0,0) coordinates.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyautogui.displayMousePosition()&lt;/code&gt; display the mouse position. (only at terminal).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Documentation at pyautogui.readthedocs.org&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;controlling-the-keyboard-from-python&#34;&gt;Controlling the keyboard from python&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pyautogui.typewrite(&#39;str&#39;, interval = 0.2) # type str like a keyboard input, interval is the duration between two character.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;str&amp;rsquo; could be replaced by a list of string, each string is a key in keyboard, &lt;code&gt;pyautogui.KEYBOARD_KEY&lt;/code&gt; displays all supported keyboard keys.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyautogui.hotkey(&#39;ctrl&#39;,&#39;o&#39;)&lt;/code&gt; can be used for keyboard shorycuts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;screenshots-and-image-recognition&#34;&gt;Screenshots and image recognition&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pyautogui.screenshot()&lt;/code&gt; take a screenshot and returns a PIL image object.
+, we can save it to a file by passing and argument (&amp;lsquo;file path&amp;rsquo;) to it.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyautogui.locateOnScreen(&#39;image_path&#39;)&lt;/code&gt; find where the image appearing on screen, it will returns a 4-tuple: &amp;lsquo;(start_width, start_height, delta_width, delta_height)&#39;, &lt;code&gt;pyautogui.locateCenterOnScreen(&#39;image_path&#39;)&lt;/code&gt;  returns the center pixel.
+&lt;ul&gt;
+&lt;li&gt;Very computation expensive&lt;/li&gt;
+&lt;li&gt;pixel perfect&lt;/li&gt;
+&lt;li&gt;return &lt;code&gt;None&lt;/code&gt; if not found.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>python04 Debugging</title>
+      <link>/post/python/python4/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python/python4/</guid>
+      <description>&lt;h2 id=&#34;exception-raise&#34;&gt;Exception raise&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;User-defined exceptions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;raise Exception(&#39;This is the error message.&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the exception message: &lt;code&gt;traceback.format_exc()&lt;/code&gt; function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import traceback
+try:
+    #try code
+except:
+    print(traceback.format_exc())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;assertions-and-assert-statement&#34;&gt;Assertions and assert statement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If assertion statement fails, &lt;code&gt;AssertionError&lt;/code&gt; exception raises. Assert statement has syntax &lt;code&gt;assert statement, &#39;Error Messgae&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;assert a &amp;gt; 0, &#39;input is less than or equal to 0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;degug-toollogging&#34;&gt;Degug tool:Logging&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Logging module need to be set at begining of a program&lt;/li&gt;
+&lt;li&gt;using &lt;code&gt;logging.debug(&#39;Error Message&#39;)&lt;/code&gt; to &amp;ldquo;print&amp;rdquo; a debug message. (See &amp;lsquo;factorial.py&amp;rsquo; as example)&lt;/li&gt;
+&lt;li&gt;Why use &lt;code&gt;logging.debug()&lt;/code&gt;, but not &lt;code&gt;print()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;We can turn off all such debug messages by puttting &lt;code&gt;logging.disable(logging.CRITICAL)&lt;/code&gt; at top of a program.&lt;/li&gt;
+&lt;li&gt;logging module has 5 level of messages &lt;code&gt;logging.debug(), logging.info(), logging.warning(), logging.error(), logging.critial()&lt;/code&gt; (from lowest to highest level). We can turn off them separately (turn off all level below the specific level)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+logging.basicConfig(level = logging.DEBUG, format = &#39;%(asctime)s - %(levelname)s - %(message)s&#39;)  # Need to be set up before using.
+logging.debug(&#39;Error Message&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;logging&lt;/code&gt; can write to a file: add &lt;code&gt;filename = &#39;fileName&lt;/code&gt; argument to &lt;code&gt;logging.basicConfig()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>python05 Web Scraping</title>
+      <link>/post/python/python5/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python/python5/</guid>
+      <description>&lt;h2 id=&#34;webbrowser&#34;&gt;Webbrowser&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;import webbrowser&lt;/code&gt; open a web brower&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>python06 Excel, Word, and PDF document</title>
+      <link>/post/python/python6/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python/python6/</guid>
+      <description>&lt;h2 id=&#34;deal-with-excel-files&#34;&gt;Deal with excel files&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;import openpyxl&lt;/code&gt; has functions dealing with excel files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;openpyxl.load_workbook(&#39;PATH&#39;)&lt;/code&gt; open an excel file, return an workbook object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;workbook.get_sheet_by_name(&#39;Sheet1&#39;)&lt;/code&gt; returns &amp;lsquo;Sheet1&amp;rsquo; in &amp;lsquo;workbook&amp;rsquo;, it returns a sheet object.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;workbook.get_sheet_names()&lt;/code&gt; returns a list of sheet names.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sheet&lt;/code&gt; object
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sheet[&#39;A1&#39;]&lt;/code&gt; returns the value of A1 in a sheet object. It returns a cell object. This is same as &lt;code&gt;sheet.cell(row = 1, column = 1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cell.value&lt;/code&gt;: Cells have member named &amp;lsquo;value&amp;rsquo; which is the value of a cell object. It has type same as what it is in excel file. To convert it to a string, using &lt;code&gt;str()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Write to an excel object
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;openpyxl.Workbook()&lt;/code&gt; returns a new workbook object. It has one sheet names &amp;lsquo;Sheet&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;We can write into a sheet via assignment (i.e. &lt;code&gt;sheet[&#39;A1&#39;] = 10&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;workbook.create_sheet()&lt;/code&gt; create a new sheet and return that sheet.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sheet.title = &#39;Sheet Name&lt;/code&gt; changes the name of a sheet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;workbook.save(&#39;PATH&#39;)&lt;/code&gt; saves an workbook to &amp;lsquo;PATH&amp;rsquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deal-with-pdf-files&#34;&gt;Deal with pdf files&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;import PyPDF2&lt;/code&gt; has functions dealing with pdf files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import PyPDF2
+pdf = open(&#39;test.pdf&#39;,&#39;rb&#39;) # be sure to open as binary mode.
+reader = PyPDF2.PdfFileReader(pdf) # create a PyPDF2Reader object
+reader.numPages # get number of pages
+page = reader.getPage(0) # create a page object (page 0 in this case)
+page.extractText() # returns a string that extract the texts in that &#39;page&#39;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PyPDF2&lt;/code&gt; can do some page-level editing on pdfs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;writer = PyPDF2.PdfFileWriter() # create a  PyPDF2Writer object
+writer.addPage(page) # add a page to writer. where &#39;page&#39; is a page object.
+# Output a pdf file
+output = open(&#39;output.pdf&#39;,&#39;wb&#39;) # open a new pdf file in write binary mode.
+writer.write(output) # Write &#39;writer&#39; into &#39;output&#39;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;deal-with-doc-document&#34;&gt;Deal with doc document&lt;/h2&gt;
+&lt;h2 id=&#34;deal-with-emails&#34;&gt;Deal with emails&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Emals sending uses SMTP( Simple Mail Transfer Protocal). Email retriving using IMAP (Internet Message Access Protocal)&lt;/li&gt;
+&lt;li&gt;email content has format &amp;lsquo;Subject: Header \n\n Content&amp;rsquo; Note there are two newlines between header and email content. If send successfully, it will renturn empty string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import smtplib  # python use smtplib to handle emails
+conn = smtplib.SMTP(&#39;smtp.gmail.com&#39;, 587) # create a connection to gmail.
+conn.ehlo() # return connection status. First tuple is an integer: (between 200-299 means connection OK).
+conn.starttls() # Encrpt the password you send.
+conn.login(&#39;username&#39;,&#39;password&#39;)
+conn.sendmail(&#39;sendFrom&#39;, &#39;sendTo&#39;, &#39;email content&#39;)
+conn.quit() 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Check email inbox&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;import imapclient&lt;/code&gt; and &lt;code&gt;import pyzmail36&lt;/code&gt; enable us check email inbox.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import imapclient
+conn = imapclient.IMAPClient(&#39;imap.gmail.com&#39;, ssl = True) # create a connection to gmail.
+conn.login(&#39;username&#39;, &#39;password&#39;)
+conn.select_folder(&#39;INBOX&#39;, readonly=True) # Select the inbox foler
+UIDs = conn.search([&#39;SINCE 1-June-2020&#39;]) # IMAP has a special search way, 
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lec01: The shell</title>
+      <link>/post/missing-semester-in-computer-science-/lec01_shell/</link>
+      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/missing-semester-in-computer-science-/lec01_shell/</guid>
+      <description>&lt;h2 id=&#34;basic-bash-commands&#34;&gt;Basic &lt;code&gt;bash commands&lt;/code&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;echo&lt;/code&gt; prints the argument follows it.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;echo $PATH$&lt;/code&gt; will print all directories that the terminal can search for a program.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;which program_name&lt;/code&gt; tells where the program we run as we type &lt;code&gt;program_name&lt;/code&gt; on terminal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pwd&lt;/code&gt;: print working directory&lt;/li&gt;
+&lt;li&gt;File system: &lt;code&gt;.&lt;/code&gt; means current directory; &lt;code&gt;..&lt;/code&gt; means parent directory; &lt;code&gt;~&lt;/code&gt; means home directory; &lt;code&gt;-&lt;/code&gt; means go to previous directory.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ls&lt;/code&gt; command
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ls -l&lt;/code&gt; prints in long format.&lt;/li&gt;
+&lt;li&gt;A long format begin as &lt;code&gt;drwxr-xr-x&lt;/code&gt;. The first &lt;code&gt;d&lt;/code&gt; means it is a directory, others are grouped by three (owner, group, anyone else respectively). &lt;code&gt;r&lt;/code&gt; refers to reading; &lt;code&gt;w&lt;/code&gt; refers to writing; &lt;code&gt;x&lt;/code&gt; refers to executing.&lt;/li&gt;
+&lt;li&gt;To change the mode of a file, use &lt;code&gt;chmod&lt;/code&gt; command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mv path1 path2&lt;/code&gt; used for move or rename a file. &lt;code&gt;cp path1 path2&lt;/code&gt; used for copy a file. &lt;code&gt;rm path1&lt;/code&gt; is used to remove a file; &lt;code&gt;rmdir&lt;/code&gt; is used to remove a directory; &lt;code&gt;mkdir&lt;/code&gt; is used to make a directory. (By default, remove is not recursive, add flag &lt;code&gt;-r&lt;/code&gt; to make it recursive).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat path1&lt;/code&gt; prints the content of a file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;|&lt;/code&gt;(pip):means take the output to the left as the input to the right.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man cmd&lt;/code&gt; command opens mannual of a execuable command &lt;code&gt;cmd&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[]&lt;/code&gt; in a mannual means optional commands&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo Hello\ World # -&amp;gt; Hello World
+echo $PATH$
+which echo
+echo hello &amp;gt; hello.txt # write hello to hello.txt
+echo hello &amp;gt;&amp;gt; hello.txt # append hello to hello.txt (keep the origin content of hello)
+ls -l / | tail -n1 # print the last line of &#39;ls /&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;root-user&#34;&gt;&lt;code&gt;root&lt;/code&gt; user&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;root&lt;/code&gt; user is the super user of a computer. It can do everything on a computer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo cmd&lt;/code&gt;  let you run cmd as a super user.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo su&lt;/code&gt; change your terminal to root&amp;rsquo;s terminal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Suppose we don&#39;t have permission writing to brightness
+echo 500 &amp;gt; brightness
+
+sudo echo 500 &amp;gt; brightness # Still don&#39;t work, since pip and redirc combined two command toghther, this line of code is sames as do &#39;sudo echo 400&#39; and write 500 to brightness. Writing 500 to brightness is not &#39;sudo&#39;
+# To fix this problem, we could use 1. &#39;sudo su&#39; 2. use &#39;tee&#39;
+echo 1060 | sudo tee brightness # &#39;tee&#39; command means writing to a file and print to output as the same time.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python01 Review</title>
+      <link>/post/python/python1/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python/python1/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;This is just a review of &lt;code&gt;python&lt;/code&gt;, Not contain every details.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;expressions&#34;&gt;Expressions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/&lt;/code&gt; in python is not an integer dividion (E.g. 25/4 = 6.25).&lt;/li&gt;
+&lt;li&gt;Mutiple an integer&lt;code&gt;i&lt;/code&gt; with a string with result a string repeating &lt;code&gt;i&lt;/code&gt; times.&lt;/li&gt;
+&lt;li&gt;Python &lt;strong&gt;doesn&amp;rsquo;t&lt;/strong&gt; support &lt;code&gt;++&lt;/code&gt; operator, but support &lt;code&gt;+=, -=, *=, /=, %=&lt;/code&gt; operators.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt; function, &lt;code&gt;type(obj)&lt;/code&gt; will returns the type of object, the object can be a literal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;assignment&#34;&gt;Assignment&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;python doest&amp;rsquo;t need to spetify types when doing assignments.&lt;/li&gt;
+&lt;li&gt;Python supports mutiple assignment, the LHS is mutiple variable name, and the RHS is a list (or values separete by comon)&lt;/li&gt;
+&lt;li&gt;Python assignment for mutable values(list,dictionary) are copy by reference, not copy by value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;spam = 3
+spam = &amp;quot;hello world&amp;quot;
+# Mutiple assignment
+spam= [1,2,3]
+i1,i2,i3 = spam
+# Swap two values using mutiple assignment 
+a, b = &#39;AAA&#39;, &#39;BBB&#39;
+a , b = b , a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;spam = [1,2,3,4,5]
+cheese = spam
+cheess[1] = 100 # spam and cheess are both equal to [1,100,3,4,5] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;io-operators&#34;&gt;IO operators&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print()&lt;/code&gt; add a newline at the end. To aviod this, use keyword argument end: &lt;code&gt;print(&#39;Hello&#39;, end = &#39;&#39;)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;myName = input() # Wait the user type until the user entering a newline character
+print(myName) # output function.
+print(&#39;dog&#39;,&#39;cat&#39;,&#39;goose&#39;) # -&amp;gt; &#39;dog cat goose&#39;
+print(&#39;dog&#39;,&#39;cat&#39;,&#39;goose&#39;, sep = &#39;A&#39;) # -&amp;gt; &#39;dogAcatAgoose&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;control-flow&#34;&gt;Control flow&lt;/h2&gt;
+&lt;h3 id=&#34;boolean-and-comparision-operator&#34;&gt;Boolean and comparision operator&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Boolean in python are &lt;code&gt;True&lt;/code&gt; and &lt;code&gt;False&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Comparision operator are indentical to C++ &lt;code&gt;==, != , &amp;gt;=, &amp;gt;, &amp;lt;=, &amp;lt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;python allow comparision between different types&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;42 == &#39;42&#39; # allow, but will be evaluated to false
+42 == 42.0 # allow, True
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Boolean operators is different with C++: &lt;code&gt;and, or, not&lt;/code&gt;, which are english words.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;if-else-elif&#34;&gt;&lt;code&gt;if, else, elif&lt;/code&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# syntax 1. don&#39;t forget : 2, no braces, but indention.
+if (condition):
+    statements1
+elif (condition2):
+    statements2
+else:
+    statements3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;For &lt;code&gt;int&lt;/code&gt;: &amp;lsquo;0&amp;rsquo; is false; For &lt;code&gt;float&lt;/code&gt;: &amp;lsquo;0.0&amp;rsquo; is false; For &lt;code&gt;string&lt;/code&gt;: &#39;&amp;rsquo; is false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;while&#34;&gt;&lt;code&gt;while&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;break&lt;/code&gt; and &lt;code&gt;continue&lt;/code&gt; are also valid in python.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# syntax
+while (condition):
+    statements
+# endof while loop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;for&#34;&gt;&lt;code&gt;for&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;range(a,b,c)&lt;/code&gt; has a type &lt;code&gt;range&lt;/code&gt;. It means starts at &lt;code&gt;a&lt;/code&gt;, end at &lt;code&gt;b&lt;/code&gt;, each iteration it increment or decrement &lt;code&gt;c&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Like c++, the object follows &lt;code&gt;in&lt;/code&gt; should be a sequential object (like &lt;code&gt;list&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;One useful trick in python is use &lt;code&gt;range(len(list))&lt;/code&gt; follows &lt;code&gt;in&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# sytax
+for i in range(n): # i = 0,1,2,3,...,n-1
+    statements
+# endof for loop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;functions&#34;&gt;Functions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Every functions has a &lt;code&gt;return&lt;/code&gt; value. If not specify, it will return a &lt;code&gt;None&lt;/code&gt; type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def function_name(parameter1,parameter2):
+    statements
+    return val #optional 
+
+# Calling a function
+function_name(arg1,arg2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;scope&#34;&gt;Scope&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Unlike C++, which each block is a scope. Python only has two scopes: golbal scope (outside any function) and local scope(inside a function).&lt;/li&gt;
+&lt;li&gt;python doesn&amp;rsquo;t distinguish declaration and assignment, so in order to use a golbal in a function, must specify it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def spam():
+    global eggs # use golal eggs
+    eggs = &#39;Hello&#39; # change the value of eggs to &#39;hello&#39;
+    print(eggs)
+eggs = 42
+spam()
+print(eggs) # -&amp;gt; &#39;Hello&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tryexcept&#34;&gt;&lt;code&gt;try/except&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Similar to C++ &lt;code&gt;try/catch&lt;/code&gt;. If no object follows &lt;code&gt;except&lt;/code&gt;, it will catch all types of errors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def div42by(divideby):
+    try:
+        return 42/divideby
+    except ZeroDivisionError:
+        print(&#39;Error: Your tried to divide by 0&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;lists&#34;&gt;Lists&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A list is a container that contains values
+&lt;ul&gt;
+&lt;li&gt;types in a list could not be same.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index&lt;/code&gt; can be negative: -1 refer to the last element; &lt;code&gt;index&lt;/code&gt; returns a single value.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;slice&lt;/code&gt; (e.g. &lt;code&gt;spam[0:2]&lt;/code&gt;) return a list of value. If we left the beginning empty (e.g. &lt;code&gt;spam[:2]&lt;/code&gt;), it means starts at 0. If we left the end empty (e.g. &lt;code&gt;spam[1:]&lt;/code&gt;), it means end at last element.&lt;/li&gt;
+&lt;li&gt;delete an element: use &lt;code&gt;del&lt;/code&gt; (&lt;code&gt;del spam[2]&lt;/code&gt; means delete the second element)&lt;/li&gt;
+&lt;li&gt;length of a list (&lt;code&gt;len()&lt;/code&gt; function)&lt;/li&gt;
+&lt;li&gt;Turn a value to a list: &lt;code&gt;list()&lt;/code&gt; function&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;in&lt;/code&gt; and &lt;code&gt;not in&lt;/code&gt; operator: whether a value in a list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Simple list
+spam = [&#39;cat&#39;, &#39;dog&#39;, &#39;goose&#39;] # spam is a list.
+spam[0] # subscript access element in a list. -&amp;gt; &#39;cat&#39;
+# List of lists
+spam2 = [ [&#39;cat&#39;,&#39;dog&#39;], [&#39;goose&#39;,&#39;elephant&#39;] ]
+spam2[0] # -&amp;gt; [&#39;cat,&#39;dog&#39;]
+spam2[1][0] # -&amp;gt; &#39;goose&#39;
+# Slices
+spam[0:2] # refer to the index at 0, up to (does not include) 2 -&amp;gt; [&#39;cat&#39;,&#39;dog&#39;]
+# mutate a list
+spam[1:3] = [1,2,3] # -&amp;gt; spam = [&#39;cat&#39;,1,2,3]
+# list()
+list(&#39;hello&#39;) # -&amp;gt; [&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;]
+list(range(0,5)) # -&amp;gt; [0,1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Python default treate &lt;code&gt;list&lt;/code&gt; initialization and assignment as reference.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All variable has type &lt;code&gt;list&lt;/code&gt; is a reference to its initialization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;list&lt;/code&gt; methods&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;index()&lt;/code&gt;: &lt;code&gt;listname.index(value)&lt;/code&gt; returns the index of value in listname. If value is not found, it raise an &lt;code&gt;ValueError&lt;/code&gt; exception. If duplicate value, it will return the first occurance.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;append()&lt;/code&gt;:&lt;code&gt;listname.appand(value)&lt;/code&gt; appand value into the end of listname.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;insert()&lt;/code&gt;: &lt;code&gt;listname.insert(i,value)&lt;/code&gt; inserts value at the ith index of listname.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;remove()&lt;/code&gt;: &lt;code&gt;listname.remove(value)&lt;/code&gt; remove value in listname, if value is not in listname, a ValueError raises. If duplicate value, it will remove the first occurance.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sort()&lt;/code&gt;: &lt;code&gt;listname.sort()&lt;/code&gt; only integeral and string type can be sort. &lt;code&gt;sort()&lt;/code&gt; can take arguments, &lt;code&gt;reverse = True&lt;/code&gt; sorts in reverse order. &lt;code&gt;key=str.lower&lt;/code&gt; do not distinguish lower and upper case.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;string&lt;/code&gt; can be treated as a list, some functions applies to &lt;code&gt;list&lt;/code&gt; also applies to &lt;code&gt;string&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;However, &lt;code&gt;string&lt;/code&gt; is immutable. so &lt;code&gt;str[0] = &#39;a&#39;&lt;/code&gt; is invalid. Act like a constant list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;dictionary&#34;&gt;Dictionary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Stores &lt;code&gt;key-value&lt;/code&gt; pair &lt;strong&gt;key:value&lt;/strong&gt; pair.&lt;/li&gt;
+&lt;li&gt;Dictionary is mutable.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;key-value&lt;/code&gt; pairs in dictionary are unordered.&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;in&lt;/code&gt; and &lt;code&gt;not in&lt;/code&gt; to verify whether a &lt;strong&gt;key&lt;/strong&gt; is in a list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;keys()&lt;/code&gt;, &lt;code&gt;values()&lt;/code&gt; and &lt;code&gt;items()&lt;/code&gt; methods returns a list&amp;rsquo;s key, value and item respectively. The return type is &lt;code&gt;dic_key&lt;/code&gt;, &lt;code&gt;dic_value&lt;/code&gt;, use &lt;code&gt;list()&lt;/code&gt; function to convert it to a list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get()&lt;/code&gt;: &lt;code&gt;dic.get(key,default_value)&lt;/code&gt; returns &lt;code&gt;dic[key]&lt;/code&gt; is key is in the list, and return default_value if not.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;myCat = {&#39;size&#39;:&#39;fat&#39;, &#39;color&#39;:&#39;grey&#39;, &#39;weight&#39;:20}
+myCat[&#39;size&#39;] #-&amp;gt; &#39;fat&#39;
+myCat[&#39;weight&#39;] #-&amp;gt; KeyError exception
+
+# for loop of a dictionary
+for value in dic.values():
+for key in dic.keys():
+for key ,value in dic.items():
+
+#mutate a dic
+myCat[&#39;height&#39;] = 40 # insert &#39;height&#39;:40 into a myCat. If &#39;height&#39; already excists in myCat, it will mutate the value.
+myCat.setdefault(&#39;height&#39;,100) # Only set &#39;height&#39; to 100 when &#39;height&#39; does not exist in myCat.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;strings&#34;&gt;&lt;code&gt;string&lt;/code&gt;s&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;string&lt;/code&gt; in python can be enclosed by single quote or double quote.&lt;/li&gt;
+&lt;li&gt;Escape characters: &lt;code&gt;\&#39;, \&amp;quot;, \t, \n, \\&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;raw string&lt;/code&gt;: A string start with &amp;lsquo;r&amp;rsquo; do not treate backslash as escape character.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;multiple-line string&lt;/code&gt;: treates all white character as part of a string.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string&lt;/code&gt; are immutable list of characters. Indexes, slices and in and not in operators all work with strings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;r&amp;quot;This is a \cat&amp;quot;  # raw string
+
+&amp;quot;&amp;quot;&amp;quot;multi-line
+string&amp;quot;&amp;quot;&amp;quot;   # multi-line string
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;string&lt;/code&gt; methods
+&lt;ul&gt;
+&lt;li&gt;Note that strings are immutable, so all string methods return a new string instead mutate the existing string.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.upper()&lt;/code&gt;, &lt;code&gt;str.lower()&lt;/code&gt; returns the upper / lower case.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.isupper()&lt;/code&gt;, &lt;code&gt;str.islower()&lt;/code&gt; returns the whether a string is &lt;strong&gt;all&lt;/strong&gt; upper / lower case. Note that in order to be evalauted to true, there must be at least one lower/upper case character.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;isalpha()&lt;/code&gt; - contains letters only; &lt;code&gt;isalnum()&lt;/code&gt; - contains letters and number only; &lt;code&gt;isspace()&lt;/code&gt; - contains whitespace only; &lt;code&gt;istitle()&lt;/code&gt; contains titlespace only.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.startswith(str2)&lt;/code&gt; and &lt;code&gt;str.endswith(str2)&lt;/code&gt; returns true of &amp;lsquo;str&amp;rsquo; starts / ends with &amp;lsquo;str2&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.join(list)&lt;/code&gt; combine &amp;lsquo;list&amp;rsquo; of string together with &amp;lsquo;str&amp;rsquo; between each two adjacent ones.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;split()&lt;/code&gt; function takes a function and returns a list. &lt;code&gt;str.split(str2)&lt;/code&gt; split &amp;lsquo;str&amp;rsquo; on each occurance of &lt;code&gt;str2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.rjust(int,char)&lt;/code&gt; or &lt;code&gt;str.ljust(int,char)&lt;/code&gt; adjusts &lt;code&gt;str&lt;/code&gt; with padding or ending &lt;code&gt;char&lt;/code&gt; to make the length to be &lt;code&gt;int&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.center(int,char)&lt;/code&gt; is similar to &lt;code&gt;rjust&lt;/code&gt; but &lt;code&gt;str&lt;/code&gt; appers on middle.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.strip()&lt;/code&gt; strip the padding and ending white character.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.replace(str1,str2)&lt;/code&gt; replace every occurance of &amp;lsquo;str1&amp;rsquo; in &amp;lsquo;str&amp;rsquo; with &amp;lsquo;str2&amp;rsquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;string formating&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;Hello, %s, you are invited to a party at %s.&#39; % (name,place)   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;build-in-functions&#34;&gt;Build-in functions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To use a function in a given module, we need to import that moudle, python code as &lt;code&gt;import random&lt;/code&gt; (for example). To call a function in that moudle, the python syntax is &lt;code&gt;random.randint(1,10)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;We can use use &lt;code&gt;from random import *&lt;/code&gt;, it means import every function in a random moudle; and we do not need &lt;code&gt;random.&lt;/code&gt; to use a function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;hello&#39; + &#39;world&#39; # string concantanation =&amp;gt; &#39;hello world&#39;
+&#39;hello&#39; * 3 # string * integer =&amp;gt; &amp;quot;hellohellohello&amp;quot;
+len(str) # length of a string
+
+int(&#39;123&#39;) # convert a string to int =&amp;gt; 123
+str(123) # convert a int to a string =&amp;gt; &#39;123&#39;
+bool(exp) # return expression/variable is Ture/False
+
+import random
+random.randint(a,b) # a random integer from a to b
+
+import sys
+sys.exit() # Exit the current program.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;third-party-modules&#34;&gt;&lt;code&gt;third-party&lt;/code&gt; modules&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;To use third-party modules, we need install (via &lt;code&gt;pip&lt;/code&gt;) first, and do exactly same as buildin functions.
+&lt;ul&gt;
+&lt;li&gt;use &lt;code&gt;pip3 install module-name&lt;/code&gt; to install a module&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;pip3 freeze&lt;/code&gt; to view installed modules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyperclip&lt;/code&gt; moudle
+&lt;ul&gt;
+&lt;li&gt;has function &lt;code&gt;copy()&lt;/code&gt; and &lt;code&gt;paste()&lt;/code&gt; reading and writing text to the clipboard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pyperclip
+pyperclip.copy(&amp;quot;Hello world&amp;quot;) # copy hello world to clipboard
+pyperclip.paste() # paste what in clipboard
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pprint&lt;/code&gt; moudle
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pprint(obj)&lt;/code&gt;, when obj is a list or a dictionary, it will prints it in a nice way.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pprint
+dic = {100:&#39;hello&#39;,110:&#39;world&#39;}
+pprint.pptint(dic) # prints dic
+str1 = pprint.pformat(dic) # returns a string of what `pprint` usually prints.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;run-a-python-program&#34;&gt;Run a python program&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;shabang line: at the beginning of a python script, tell the OS to run the script using python.
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;#! /usr/bin/env python3&amp;rsquo; in MacOS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;bash script&lt;/code&gt; to run python&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
+python3 path
+bash
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer Chap 5 Statements</title>
+      <link>/post/c&#43;&#43;_primer_chap5/</link>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/c&#43;&#43;_primer_chap5/</guid>
+      <description>&lt;h2 id=&#34;51-simple-statement&#34;&gt;5.1 Simple Statement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Expression Statement&lt;/code&gt;: when add a semicolon after a expression. A &lt;code&gt;Expression Statement&lt;/code&gt; usually have side effects, otherwise, it is useless.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Null statement&lt;/code&gt; is a single semicolon. A &lt;code&gt;null statement&lt;/code&gt; is useful when the language requires a statement but the program&amp;rsquo;s logic does not.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Compound Statement&lt;/code&gt;: usually refer to as &lt;code&gt;blocl&lt;/code&gt; ( &amp;ldquo;{ }&amp;rdquo; ). A block is a &lt;code&gt;scope&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;52-statement-scope&#34;&gt;5.2 Statement scope&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Variables define inside &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt; and &lt;code&gt;for&lt;/code&gt; statement are only valid inside the statement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;53-conditional-statements&#34;&gt;5.3 Conditional Statements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ provides two conditional statements. The &lt;code&gt;if&lt;/code&gt; statement and the &lt;code&gt;switch&lt;/code&gt; statement.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;if&lt;/code&gt; statement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;if (condition) 
+    statement 
+else 
+    statement2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* Condition must be enclosed in parentheses. Condition can be an expression or an initialized variable declaration. Statements can be replaced by blocks.
+* `Dangling else`: each `else` is matched with the closest preceding unmatched `if`. We can also make `else` part of outer `if` by enclosing the inner `if` in a block.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Switch statement&lt;/code&gt; provides a convernient way to selecting among a number of fixed alternative.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;char cn;
+switch (cn) {
+    case &#39;a&#39;: 
+        ++acnt;
+        break;
+    case &#39;e&#39;:
+        ++ecnt;
+        break;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* A `switch` statement executes by evaluating the parenthesized expression that follows the keyword `switch`. The expression is converted to `integral type`, the result of expression is compared with the value associated with each `case`.
+* If the expression matched the value of a `case` label (&amp;quot;case &#39;a&#39;&amp;quot;), execuation begins with the first statement following that label.
+* After a `case` label is matched, execuation continues across all the remaining `case`s.
+* A `case` label must be a `constant integral` expression.
+* Each `case` label can only contain one value (`case 1,2,3:` is an error).
+* Don&#39;t forget `break` after a case label.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;switch(ch) {
+    case &#39;a&#39;:
+        ++acnt;
+    case &#39;e&#39;:
+        ++ecnt;
+    case &#39;i&#39;:
+        ++icnt;
+}
+// In this case, when ch is matched with &#39;a&#39;, then all acnt, ecnt and icnt increments.
+switch(ch) {
+    case &#39;a&#39;:
+    case &#39;e&#39;:
+    case &#39;i&#39;:
+        ++vowelcnt;
+} // Any case of &#39;a&#39;, &#39;e&#39; and &#39;i&#39; will increment vowelcnt.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* `default` label: The statements following the `default` label are execuated when no `case` label matches the value of the `switch` expression.
+* Execuation in a `switch` can jump across `case` labels. If such jump bypasses initialization of variable (both implict and explict initializations), then the complier will error. (One remedy is add curly braces to narrow the scope of initialization.)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;54-iterative-statement&#34;&gt;5.4 Iterative Statement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;while&lt;/code&gt; and &lt;code&gt;for&lt;/code&gt; statement test the condition before execuating the body. The &lt;code&gt;do while&lt;/code&gt; executes the body and then tests its condition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;while-statement&#34;&gt;&lt;code&gt;while&lt;/code&gt; statement&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;while (condition)
+    statement
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Variables defined in &lt;code&gt;while&lt;/code&gt; condition or &lt;code&gt;while&lt;/code&gt; body are created and destory on each iteration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;for-statement&#34;&gt;&lt;code&gt;for&lt;/code&gt; statement&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;traditional for statement&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;for (initializer; condition; expression) {
+    statement
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* `initializer` must be a declaration statement, an expression statement or a null statement.
+* 1. `initializer` will be execuated only once. 2. If condition eveluates as `true`, then the for boby execuates; otherwise, the loop terminates. 3.After `for` body execuates, `expression` execuates.
+* `inti-statement` can defined several objects, but they must be separated by `comma`, so they must have same base type.
+* `omiting parts of the for header`: A `for` loop can omit any (or all) of `init-statement`, `condition`, or `expression`, but we cannot omit semicolon. Note that, omiting `condition` is equilavent to writing `true` as condition.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Range &lt;code&gt;for&lt;/code&gt; statement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;for (declaration : expression)
+    statement
+
+//What a range for really does
+for (auto beg = v.begin(), end = v.end(); beg != end; ++beg) {
+    //statements
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* `expression` must represent a sequence. `declaration` defines a variable.
+* We usually use keyword `auto` as type in declaration.
+* If we want to mutate elements, we should use reference type.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;do while&lt;/code&gt; statement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;do
+    statement
+while (condition); // A do while ends with a semicolon.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* Since `do while` execuate statement before condition, then it is not allowed to declare variable in a do condition.
+* If we add curly braces in `do` statement, then variables defined in `do` statement are not accessible in `condition` (scope problem).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;55-jump-statement&#34;&gt;5.5 Jump Statement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Jump statement interrupt the flow of execution. C++ offers four jumps: &lt;code&gt;break&lt;/code&gt;, &lt;code&gt;continue&lt;/code&gt;, &lt;code&gt;goto&lt;/code&gt; and &lt;code&gt;return&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;break&lt;/code&gt; statement terminates the &lt;strong&gt;nearest&lt;/strong&gt; enclosing &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;do while&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt; or &lt;code&gt;switch&lt;/code&gt; statement.&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;continue&lt;/code&gt; statement terminates the current iteration of the nearest enclosing loop.
+&lt;ul&gt;
+&lt;li&gt;A &lt;code&gt;continue&lt;/code&gt; statement can appear only inside a &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt; or &lt;code&gt;do while&lt;/code&gt;, and &lt;code&gt;swith&lt;/code&gt; if it is embedded inside an iterative statement.&lt;/li&gt;
+&lt;li&gt;After &lt;code&gt;continue&lt;/code&gt;, execution continues by evaluating the &lt;code&gt;condition&lt;/code&gt; in &lt;code&gt;while&lt;/code&gt; and &lt;code&gt;do while&lt;/code&gt;; and by evaluating the &lt;code&gt;expression&lt;/code&gt; in for loop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;goto&lt;/code&gt; statement provides an unconditional jump from the &lt;code&gt;goto&lt;/code&gt; to a another statement in the &lt;strong&gt;same function&lt;/strong&gt;.
+&lt;ul&gt;
+&lt;li&gt;As &lt;code&gt;switch&lt;/code&gt; statement, jump bypasses an initialization is illegal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;goto label;
+end: return // labeled statementl may be the target of a goto
+
+goto end;
+int ix = 10;
+end: 
+    ix = 42; //error, bypasses an initialization
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;56-try-blcoks-and-exception-handling&#34;&gt;5.6 &lt;code&gt;try&lt;/code&gt; Blcoks and Exception Handling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Exception&lt;/code&gt;s are used to handle &lt;code&gt;run-time&lt;/code&gt; errors.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Exception&lt;/code&gt; handling is generally used when one part of a program detects a problem that it cannot resolve.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;throw&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;A detecting part (where problem arises) of a program uses a &lt;code&gt;throw&lt;/code&gt; expression to raise an exception. A &lt;code&gt;throw&lt;/code&gt; consists of the keyword &lt;code&gt;throw&lt;/code&gt; followed by an expression (an object, &lt;code&gt;runtime_error&lt;/code&gt; is defined in &lt;code&gt;stdexcept&lt;/code&gt; header.)&lt;/li&gt;
+&lt;li&gt;Throwing an &lt;code&gt;exception&lt;/code&gt; terminates the current function and tranfers control to a handler.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;if (item1.isbn() != item2.isbn()) {
+    throw runtime_error(&amp;quot;Data must refer to same ISBN&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;try&lt;/code&gt; block
+The general form of a &lt;code&gt;try&lt;/code&gt; block is&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;try {
+    program_statements
+} catch (exception_declaration) {
+    handler-statements
+} catch (exception_declaration) {
+    handler-statements
+} //here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;* A `catch` consist of three parts: the keyword `catch`, the declaration of an object within parentheses (`exception declaration`), and a block of `exception` handler. 
+* After a catch block execuating, the control flow will falls through the closing brace of `try` (__here__ in above code).
+* Objects in `stdexcept` header have member function `.what()`, it prints the error messege of a exception.
+* E.g. A() calls B(), B() call C(). C throw an exception, it will search a catch hendler in B, but if search fails, function B will terminates, and search catch hendler in A. Ans so on.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Variables defined in try block is inaccessible in other blocks &amp;ndash; in particularm they are not accessible to the catch clause.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Standard Exceptions
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;exception&lt;/code&gt; defines a general kink of exception class named &lt;code&gt;exception&lt;/code&gt;. It communicates only that an exception occured but no additional info. We can create, copy and assign any type of exceptions to &lt;code&gt;exception&lt;/code&gt; type (e.g. &lt;code&gt;runtime_error&lt;/code&gt; is a derived class of &lt;code&gt;exception&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;stdexcept&lt;/code&gt; header defines several general purpose exception classes.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;new&lt;/code&gt; header defines the &lt;code&gt;bad_alloc&lt;/code&gt; exception type.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;type_info&lt;/code&gt; defines &lt;code&gt;bad_cast&lt;/code&gt; exception type.&lt;/li&gt;
+&lt;li&gt;We can default initialize &lt;code&gt;exception&lt;/code&gt;, &lt;code&gt;bad_alloc&lt;/code&gt; and &lt;code&gt;bad_cast&lt;/code&gt; objects (but we cannot initialize them). Other exceptions don&amp;rsquo;t suppot default initialize, we can only initialize them (opposite way).
+&lt;img src=&#34;../img/exception.png&#34; alt=&#34;image&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer Chap 4 Expression</title>
+      <link>/post/c&#43;&#43;_primer_chap4/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/c&#43;&#43;_primer_chap4/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;A expression is composed of one or more &lt;code&gt;oprands&lt;/code&gt; and yields a &lt;code&gt;result&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fundamentals&#34;&gt;Fundamentals&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;There are unary operators (such us &lt;code&gt;&amp;amp;&lt;/code&gt; and &lt;code&gt;*&lt;/code&gt;) and binary operators (such as &lt;code&gt;==&lt;/code&gt; and &lt;code&gt;+&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lvalue&lt;/code&gt; could stand on the left-hand side of an assignment while &lt;code&gt;rvalue&lt;/code&gt; not.
+&lt;ul&gt;
+&lt;li&gt;Operators differ as to whether they require a &lt;code&gt;lvalue&lt;/code&gt; ot &lt;code&gt;rvalue&lt;/code&gt;, we can use &lt;code&gt;lvalue&lt;/code&gt; when ask for &lt;code&gt;rvalue&lt;/code&gt;, but not other direction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;decltype&lt;/code&gt; differs between &lt;code&gt;rvalue&lt;/code&gt; and &lt;code&gt;lvalue&lt;/code&gt;, when we apple &lt;code&gt;decltype&lt;/code&gt; on an expression, the result is a reference if the expression returns a &lt;code&gt;rvalue&lt;/code&gt; (e.g. p is &lt;code&gt;int *&lt;/code&gt;, &lt;code&gt;decltype(*p)&lt;/code&gt; will return &lt;code&gt;int &amp;amp;&lt;/code&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Order of evaluation
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;int i = f1() + f2()&lt;/code&gt;, we donn&amp;rsquo;t know &lt;code&gt;f1()&lt;/code&gt; will be called first or &lt;code&gt;f2()&lt;/code&gt; will be called first. Operators does not specify the order.&lt;/li&gt;
+&lt;li&gt;There are few exceptions: &lt;code&gt;AND (&amp;amp;&amp;amp;)&lt;/code&gt; (left-hand oprand is evaluated first), &lt;code&gt;OR(||)&lt;/code&gt;,&lt;code&gt;conditional (? :)&lt;/code&gt;,&lt;code&gt;comma (,)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Order of evaluation is independent of precedence and associativity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;arithmetic-operators&#34;&gt;Arithmetic Operators&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../img/Arithmetic1.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The oprands and results of Arithmetic operators are rvalues.&lt;/li&gt;
+&lt;li&gt;Arithmrtic operators can be applied to any of the arithmetic type and any type that can be converted to arithmetic .&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;%&lt;/code&gt; returns the remainder of two integer value. Note that the operands to &lt;code&gt;%&lt;/code&gt; must have integer type.&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;C++11&lt;/code&gt;, when m,n &amp;gt; 0,
+&lt;ul&gt;
+&lt;li&gt;(-m / n) and (m / -n) are always equal to (-(m/n)),&lt;/li&gt;
+&lt;li&gt;m%-n is equal to m%n;&lt;/li&gt;
+&lt;li&gt;(-m) % n is equal to -(m%n).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;logic-and-rational-operators&#34;&gt;Logic and Rational Operators&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The oprands to these operators are rvalues and the result is an rvalue.
+&lt;img src=&#34;../img/logic1.png&#34; alt=&#34;image&#34;&gt;&lt;/li&gt;
+&lt;li&gt;The logic &lt;code&gt;AND&lt;/code&gt; and &lt;code&gt;OR&lt;/code&gt; operators always evaluate their left operand first, and evaluate their right operand if the left operand cannot determine the results.&lt;/li&gt;
+&lt;li&gt;The relational operators return a bool type, so nested relational operators may yield a surprising result (e.g. i &amp;lt; j &amp;lt; k).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;true&lt;/code&gt; will be converted to 1 as int, and &lt;code&gt;false&lt;/code&gt; will be converted to 0 as int.&lt;/p&gt;
+&lt;p&gt;In practice, it is better to use const reference instead of copying.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;If we want to test the truth value, the most direct way will be &lt;code&gt;if (val)&lt;/code&gt; or &lt;code&gt;if (! val)&lt;/code&gt;. If we are using &lt;code&gt;if (val == true)&lt;/code&gt;, some problem will raise if val is not a boolean type. In this case, true will be converted to the type &lt;code&gt;val&lt;/code&gt; has, and leads to a surprising result.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;assignment-operators&#34;&gt;Assignment operators&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The left-hand operand of an assignment operator must be a modifiable lvalue.&lt;/li&gt;
+&lt;li&gt;Assignment is right associative. &lt;code&gt;ival = jval = 0&lt;/code&gt; will evaluate &lt;code&gt;jval = 0&lt;/code&gt; first and return &lt;code&gt;jval&lt;/code&gt;. (assignment will return its left-hand operand)&lt;/li&gt;
+&lt;li&gt;Assignment has low precedence than the rational operatos, parentheses are usually needed around assignment.&lt;/li&gt;
+&lt;li&gt;Compound Assignment operator include &lt;code&gt;+=, -=, *=, /=, %=&lt;/code&gt; and &lt;code&gt;&amp;lt;&amp;lt;=, &amp;gt;&amp;gt;=, &amp;amp;=, ^=, |=&lt;/code&gt; (bitwise operators.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;increment-and-decrement-operator&#34;&gt;Increment and Decrement operator&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;++&lt;/code&gt; and &lt;code&gt;--&lt;/code&gt; operators are useful for iterators, since many iteratos do not support arithmetic.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;++i&lt;/code&gt; will add 1 to &lt;code&gt;i&lt;/code&gt; fist, then return the updated &lt;code&gt;i&lt;/code&gt;. &lt;code&gt;i++&lt;/code&gt; will add 1 to &lt;code&gt;i&lt;/code&gt;, and return unchanged &lt;code&gt;i&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;These operatos require &lt;code&gt;lvalue&lt;/code&gt;, the prefix one return the object itself as lvalue; the postfix one return a copy of the object&amp;rsquo;s original value as rvalue.&lt;/li&gt;
+&lt;li&gt;E.g. &lt;code&gt;pbed&lt;/code&gt; is an iterator type. &lt;code&gt;*pbed++&lt;/code&gt; print the current value and advance pbeg. It is equivalent to &lt;code&gt;*(pbeg++)&lt;/code&gt;, and is commnly used in C++.&lt;/li&gt;
+&lt;li&gt;Since order of oprand to be evaluated is undefined, to write expression involved &lt;code&gt;++&lt;/code&gt; and &lt;code&gt;--&lt;/code&gt;, should ask first what will happen if left-hand operand is evaluated first and  what will happen if right-hand operand is evaluated first.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use postfix operatos only when necessary.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-member-access-operator&#34;&gt;The member Access operator&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The dot&lt;code&gt;.&lt;/code&gt; and arraow &lt;code&gt;-&amp;gt;&lt;/code&gt; provide for member access. Remember &lt;code&gt;ptr-&amp;gt;mem&lt;/code&gt; = &lt;code&gt;(*ptr).mem&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Derederence has lower precedence than dot.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-conditional-operator&#34;&gt;The Conditional Operator&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string finalgrade = (grade &amp;lt; 60) ? &amp;quot;fail&amp;quot; : &amp;quot;pass&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;The conditional operator has the form &lt;code&gt;cond ? expr1 : expr2&lt;/code&gt;. &lt;code&gt;expr1&lt;/code&gt; and &lt;code&gt;expr2&lt;/code&gt; must have the same type (or can be converted to same type). If &lt;code&gt;cond&lt;/code&gt; is true, it will return &lt;code&gt;expr1&lt;/code&gt;, and &lt;code&gt;expr2&lt;/code&gt; otherwise. The result of conditional operator is &lt;code&gt;lvalue&lt;/code&gt; if both &lt;code&gt;expr1&lt;/code&gt; and &lt;code&gt;expr2&lt;/code&gt; returns lvalue.&lt;/li&gt;
+&lt;li&gt;The contional operator has fairly low precedence, so when use it in an output expression, a parenthesis should be added.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Nested Condotonal Operator&lt;/code&gt;: right associative.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-bitwise-operator&#34;&gt;The Bitwise Operator&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The bitwise operators take operands of &lt;code&gt;integral type&lt;/code&gt; that they use as a collection of bits.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is no guarantees for how the sign bit is handled, it is better to use unsigned types for bitwise operations.
+&lt;img src=&#34;../img/bitwise1.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operators: Bits are shifted off left or right, padding 0&amp;rsquo;s when necessary (&lt;code&gt;bits &amp;lt;&amp;lt; 8&lt;/code&gt; shifts bits to the left by 8 positions)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~bit&lt;/code&gt; generates a new value with the bits of its oprand inverted.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;amp;,|,^&lt;/code&gt; are bitwise and, or and xor operator, they compare two integer value bits by bits. &lt;code&gt;^&lt;/code&gt; is 1 either but not both oprands contain 1.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Shift operatos&lt;/code&gt; are left associative, and it has precedence lowr than arithmetic operatos but higher than relation operators.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;cout &amp;lt;&amp;lt; 10 &amp;lt; 42; //error cout &amp;lt;&amp;lt; 10 evaluates first.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;the-sizeof-operator&#34;&gt;The &lt;code&gt;sizeof&lt;/code&gt; Operator&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;sizeof&lt;/code&gt; operator returns the size, in bytes, of an expression or a type name.
+&lt;ul&gt;
+&lt;li&gt;usage: &lt;code&gt;sizeof expr&lt;/code&gt; and &lt;code&gt;sizeof (type)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sizeof&lt;/code&gt; an array is the size of entire array.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sizeof&lt;/code&gt; a string or a vector returns only the size of the fixed part.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;Sales_data data, *p; 
+sizeof (p); // size of a pointer
+sizeof (*p); // size of which p points. 
+sizeof (data.revenue) 
+sizeof (Sales_data::revenue); //could use scope operator to fetch the members.
+sizeof (ia) / sizeof (*ia) // returns the number of elements is ia, note ia is a array.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;comma-operator&#34;&gt;Comma Operator&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;comma operator&lt;/code&gt; takes two operands, which it evaluates from left to right. It guarantees the order.&lt;/li&gt;
+&lt;li&gt;The left-hand expression is evaluated and its value is discarded, the result of a comma expression is the value of right-hand expression.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;type-conversion&#34;&gt;Type conversion&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Two types are related if there is a &lt;code&gt;conversion&lt;/code&gt; between them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Implict conversion&lt;/code&gt;: &lt;strong&gt;automatic&lt;/strong&gt; conversion without programmer intervention.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In most expression, values of integral types smaller than int are first promoted to an appropriate larger integral type.&lt;/li&gt;
+&lt;li&gt;In conditions, non&lt;code&gt;bool&lt;/code&gt; are converted to &lt;code&gt;bool&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In initialization, the inirializer is converted to the type of the variable.&lt;/li&gt;
+&lt;li&gt;In assignment, the right-hand operand is converted to the type of left-hand.&lt;/li&gt;
+&lt;li&gt;Conversion also happen during function calls.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Arithmetic conversion&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;operands to an operator are converted to the widest type&lt;/li&gt;
+&lt;li&gt;integral value in converted to an appropriate floating-point type.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Integral promotion&lt;/code&gt;: small integral types (&lt;code&gt;bool&lt;/code&gt;,&lt;code&gt;char&lt;/code&gt;,&lt;code&gt;signed char&lt;/code&gt;,&lt;code&gt;short&lt;/code&gt;&amp;hellip;) are promoted to int.&lt;/li&gt;
+&lt;li&gt;Operands of &lt;code&gt;unsigned&lt;/code&gt; type
+&lt;ul&gt;
+&lt;li&gt;when add an &lt;code&gt;ussigned int&lt;/code&gt; with a &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt; will be converted to &lt;code&gt;unsigned int&lt;/code&gt; first (when unsigned operand has a larger type than the signed operand; in other direction, the behaviour is undefined.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other conversions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;array&lt;/code&gt; is automatically converted to a pointer except &lt;code&gt;address-of(&amp;amp;),sizeof,typeid,decltype&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt; and &lt;code&gt;nullptr&lt;/code&gt; can be converted to any pointer type. A pointer to any non&lt;code&gt;const&lt;/code&gt; type can be converted to &lt;code&gt;void *&lt;/code&gt;. A pointer to any type can be converted to &lt;code&gt;const void*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If T is a type, we can convert a pointer or a reference to T into a pointer or a reference to &lt;code&gt;const T&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Conversions defined by class type&lt;/code&gt;. For example. the IO library defines a conversion from &lt;code&gt;istream&lt;/code&gt; to &lt;code&gt;bool&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explicit conversions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cast-name&amp;lt;type&amp;gt; (expression)&lt;/code&gt;: type is the target type; if expression is a reference, then the result is an lvalue.&lt;/li&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;static_cast&lt;/code&gt;: Any well-defined type conversion, other than those involving low-level &lt;code&gt;const&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;const_cast&lt;/code&gt;: changes only low-level &lt;code&gt;const&lt;/code&gt;, &amp;ldquo;cast away the &lt;code&gt;const&lt;/code&gt;&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;reinterpret_cast&lt;/code&gt; performs a low-level reinterpretation of the bit pattern.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;// static_cast
+double d = 3.14;
+void *p = &amp;amp;d;
+double *dp = static_cast&amp;lt;double *&amp;gt; (p); //fine.
+// const_cast
+const char a = &#39;a&#39;;
+const char *pc = &amp;amp;a;
+chat *p = const_cast&amp;lt;char *&amp;gt;(pc) // cast_away const, but writing through p is undefined since the object originally is a const.
+char a = &#39;a&#39;;
+const char *pc = &amp;amp;a;
+chat *p = const_cast&amp;lt;char *&amp;gt;(pc) //cast_away const, can write through p.
+//reinterpret_cast
+int *ip;
+char *pc = reinterpret_cast&amp;lt;char*&amp;gt; (ip) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../img/precedence1.png&#34; alt=&#34;image&#34;&gt;
+&lt;img src=&#34;../img/precedence2.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer Chap 3 Strings, Vectors, and Arrays</title>
+      <link>/post/c&#43;&#43;_primer_chap3/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/c&#43;&#43;_primer_chap3/</guid>
+      <description>&lt;h2 id=&#34;namespace-using-declarations&#34;&gt;Namespace &lt;code&gt;using&lt;/code&gt; declarations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;scope operator &lt;code&gt;::&lt;/code&gt;: look in the scope of left-hand oprand for the name of the right-hand oprand.&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;using&lt;/code&gt; declaration let us use a name from a namespace without adding &lt;code&gt;namespace::&lt;/code&gt; as prefix.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;library-string-type&#34;&gt;Library &lt;code&gt;string&lt;/code&gt; type&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;# include &amp;lt;string&amp;gt;
+using std::string;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;defining-and-initializing-string&#34;&gt;Defining and initializing &lt;code&gt;string&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../img/string1.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When we initialize a variable using &lt;code&gt;=&lt;/code&gt;, we are using &lt;code&gt;copy initialization&lt;/code&gt;; when we initialize a variable omit &lt;code&gt;=&lt;/code&gt;, we are using &lt;code&gt;direct initialization&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;operations-on-strings&#34;&gt;Operations on strings&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../img/string1.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reading and writing strings
+&lt;ul&gt;
+&lt;li&gt;when reading strings, the os will read and discards any leading whitespace; it then reads characters until next whitespace character is encounted. (e.g when we input &amp;ldquo;hello world&amp;rdquo;, the os will only read in &amp;ldquo;hello&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getline(is,s)&lt;/code&gt; will read a whole line until firstly encounter the newline character (not include newline), then store the content to a string(&lt;code&gt;line&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getline(...)&lt;/code&gt; will return its istream.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s.empty()&lt;/code&gt; will return a &lt;code&gt;bool&lt;/code&gt; based on whether &lt;code&gt;s&lt;/code&gt; is empty.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s.size()&lt;/code&gt; will return the length of &lt;code&gt;s&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;s.size()&lt;/code&gt; will return a &lt;code&gt;string::size_type&lt;/code&gt; value. &lt;code&gt;string::size_type&lt;/code&gt; is an unsigned integer type big enouth to hold the size of any &lt;code&gt;string&lt;/code&gt;. (could use &lt;code&gt;decltype&lt;/code&gt; to get its type). Since it is an unsigned integer type, be caution when add,substract or compare it with a signed integer type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; and &lt;code&gt;!=&lt;/code&gt; compares whether two strings are equal, &lt;code&gt;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;=&lt;/code&gt;, &lt;code&gt;&amp;lt;=&lt;/code&gt; compare two string using &lt;code&gt;dictionary strategy&lt;/code&gt; (case sensitive)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt; and &lt;code&gt;+=&lt;/code&gt; adding two string by concatenating of the left-hand followed by the right-hand oprand.
+&lt;ul&gt;
+&lt;li&gt;when we add a string and a literals, one of left-hand and right-hand must be a string(&lt;code&gt;&amp;quot;hellow&amp;quot; + &amp;quot;world&amp;quot; + s1&lt;/code&gt; is illegal)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string literal&lt;/code&gt;s are not &lt;code&gt;string&lt;/code&gt;s !&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dealing-with-characters-in-string&#34;&gt;Dealing with Characters in &lt;code&gt;string&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dealing with single character and want to check the characteristic of a single character. using functions in &lt;code&gt;#include&amp;lt;cctype&amp;gt;&lt;/code&gt; header.
+&lt;img src=&#34;../img/string3.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Use Range-based &lt;code&gt;for&lt;/code&gt; to process every character&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string s(&amp;quot;hello world&amp;quot;);
+for (auto c : s) { //access every character in s
+    // do something
+}
+for (auto &amp;amp;c : s) { //use reference if we want to mutate the value of each character.
+    // do something
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Process only some character
+&lt;ul&gt;
+&lt;li&gt;using &lt;code&gt;[] operatpr&lt;/code&gt;. Subscript operator will take a &lt;code&gt;string::size_type&lt;/code&gt;, and it starts at 0 which end at &lt;code&gt;s.size() - 1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[] operatpr&lt;/code&gt; returns a value typed &lt;code&gt;char &amp;amp;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;when we use subscript operator, it is best practice to use an &lt;code&gt;string::size_type&lt;/code&gt; (by using &lt;code&gt;decltype(s.size()) i = 0&lt;/code&gt;) variable, and check its value is less than &lt;code&gt;s.size()&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;library-vector-type&#34;&gt;Library &lt;code&gt;vector&lt;/code&gt; type&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vector&lt;/code&gt; is a collection of objects, all of which have the same type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;vector&amp;gt;
+using std:vector;
+vector&amp;lt;vector&amp;lt;string&amp;gt; &amp;gt; file;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vector&lt;/code&gt; is a &lt;code&gt;class template&lt;/code&gt;, it is not a class, but tell the complier how to generate a class. The process of generating a class is called &lt;code&gt;instantiation&lt;/code&gt;. To instantiate a &lt;code&gt;vector&lt;/code&gt;, we must tell the complier what of objects a vector will store.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;define-and-initializing-vector&#34;&gt;Define and initializing &lt;code&gt;vector&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../img/vector1.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sevel ways to initialize
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;copy initialization&lt;/code&gt; (using = )&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;List initialization&lt;/code&gt;: supply a list of element values enclosed by &lt;code&gt;curly braces&lt;/code&gt;. (c++11 feature, could be either direct or copy initialization)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Number of Elements&lt;/code&gt;: supply a count and an element value. If we donnot specify the value, the complier will use value initialization, which calls the implicit initialization. (only can use direct initialization)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Initialize using another array or vector&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;vector&amp;lt;int&amp;gt; i1{10,3,4} //List initialization, direct.
+vector&amp;lt;int&amp;gt; i2 = {10,3,4} //List initialization, copy.
+vector&amp;lt;int&amp;gt; v1{10,1}; //v1 will contain 2 elements
+vector&amp;lt;int&amp;gt; v2(10,1); //v2 will contain 10 copies of 1
+vector&amp;lt;string&amp;gt; v3{&amp;quot;hi&amp;quot;} // v3 will contain one element &amp;quot;hi&amp;quot;
+vector&amp;lt;string&amp;gt; v4(&amp;quot;hi&amp;quot;) // error
+vector&amp;lt;string&amp;gt; v5{10,&amp;quot;hi&amp;quot;} //since list initialization is not valied -- 10 is not a string -- then the complier will treate this as vector&amp;lt;string&amp;gt; v5(10,&amp;quot;hi&amp;quot;)
+vector&amp;lt;int&amp;gt; i3(i1.begin(), i1.end());
+int arr1[] = {1,2,3};
+vector&amp;lt;int&amp;gt; i4(begin(arr1), end(arr2));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;adding-elements-to-a-vector&#34;&gt;Adding elements to a vector&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;using &lt;code&gt;v.puch_back(element)&lt;/code&gt; to add element into a vector.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vector&lt;/code&gt;s grow efficiently, so it is better to define &lt;code&gt;vector&lt;/code&gt; as indifinit size.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The body of a range &lt;code&gt;for&lt;/code&gt; must not change the size of the sequence over which it is iteration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;vector-operation&#34;&gt;&lt;code&gt;vector&lt;/code&gt; operation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../img/vector2.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Most of operations of &lt;code&gt;vector&lt;/code&gt; are similar to operations of &lt;code&gt;string&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;v.size()&lt;/code&gt; function return a value of &lt;code&gt;vector&amp;lt;T&amp;gt;::size_type&lt;/code&gt; type.&lt;/li&gt;
+&lt;li&gt;To compare two &lt;code&gt;vectors&lt;/code&gt;, we must make sure that the underlying element type can be compared.&lt;/li&gt;
+&lt;li&gt;subscript operator &lt;code&gt;[]&lt;/code&gt; is similar it is in a string. Note that it fetches an existing element, it does not add an element.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;introducing-iterators&#34;&gt;Introducing Iterators&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Iterator &amp;ndash; like pointers &amp;ndash; gives us indirect access to an element or a character&lt;/li&gt;
+&lt;li&gt;A valid &lt;code&gt;iterator&lt;/code&gt; either denotes as element or denotes a position one past last element in a container.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;using-iterator&#34;&gt;Using iterator&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;begin&lt;/code&gt; member returns an iterator that denotes the first element; the &lt;code&gt;end&lt;/code&gt; member denotes the &amp;lsquo;one past the end&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;In general, we don&amp;rsquo;t know the precise type of an iterator, so it is better to use &lt;code&gt;auto&lt;/code&gt; type.&lt;/li&gt;
+&lt;li&gt;If the container v is empty, then &lt;code&gt;v.begin() == v.end()&lt;/code&gt;
+&lt;img src=&#34;../img/iterator1.png&#34; alt=&#34;alternative text for search engines&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;++&lt;/code&gt; operator means move from one element to the next.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt; operator is just like what we did in a pointer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iteratos&lt;/code&gt; can be &lt;code&gt;const&lt;/code&gt; or non&lt;code&gt;const&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;if the object is &lt;code&gt;const&lt;/code&gt;, then &lt;code&gt;begin&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; will return constant iterator.&lt;/li&gt;
+&lt;li&gt;if the object is non&lt;code&gt;const&lt;/code&gt;, then &lt;code&gt;cbegin&lt;/code&gt; and &lt;code&gt;cend&lt;/code&gt; will return constant iterator.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;If we have a &lt;code&gt;vector&amp;lt;string&amp;gt;&lt;/code&gt; and &lt;code&gt;it&lt;/code&gt; is a iterator, then we want to see whether the element of &lt;code&gt;it&lt;/code&gt; is empty, we can de &lt;code&gt;(*it).empty()&lt;/code&gt; or using arrow operator &lt;code&gt;it-&amp;gt;empty()&lt;/code&gt;. Where &lt;code&gt;it-&amp;gt;mem&lt;/code&gt; is a synonym for &lt;code&gt;(*it).mem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;iterator-arthmetic&#34;&gt;Iterator Arthmetic&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Iterators for &lt;code&gt;string&lt;/code&gt; and &lt;code&gt;vector&lt;/code&gt; support additional operations.
+&lt;img src=&#34;../img/iterator2.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/li&gt;
+&lt;li&gt;We can add an integer value and an iterator. Doing so returns an iterator positioned forward that many element.&lt;/li&gt;
+&lt;li&gt;We can compare two iterators, but they should both belongs to smae &lt;code&gt;vectror&lt;/code&gt; or a &lt;code&gt;string&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;We can substract two iterators, the result is the amount by which we&amp;rsquo;d have to change one iterator to get the another. The result is a signed integer type named &lt;code&gt;difference_type&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;// Example: Binary search 
+auto begin = text.begin(), end = text.end();
+auto mid = text.begin() + (end - begin) / 2;
+while (mid != end &amp;amp;&amp;amp; *mid != sought) {
+    if (sought &amp;lt; *mid)
+        end = mid;
+    else 
+        beg = mid + 1;
+    mid = beg + (end - begin) / 2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;arrays&#34;&gt;Arrays&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Array is a C-stype container. It is similar to vector, but have to pre-determine its size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;defining-and-initializing-arrays&#34;&gt;Defining and Initializing arrays&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Defining array: &lt;code&gt;a[b]&lt;/code&gt; where a is the name and b is the size; b should be a &lt;code&gt;constexpr&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As with variable of build-in type (int, unsigned), a default-initialized array of built-in type that is defined inside a function will have undefined value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;could use &lt;code&gt;list initialize&lt;/code&gt;. if use &lt;code&gt;list initialize&lt;/code&gt;, then &lt;code&gt;b&lt;/code&gt; should be greater than or equal to the number of elements. If &lt;code&gt;b&lt;/code&gt; is greater than the number of elements, then the remaining spots will be used &lt;code&gt;value initializition&lt;/code&gt; ( 0 for int and &amp;quot;&amp;rdquo; for strings)&lt;/li&gt;
+&lt;li&gt;Character arrays could be initialized by a string literal. Be careful that string literal ends with a null character.&lt;/li&gt;
+&lt;li&gt;No copy or assignment operator for array (!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string a1[3] = {&amp;quot;hi&amp;quot;,&amp;quot;bye&amp;quot;} // {&amp;quot;hi&amp;quot;,&amp;quot;bye&amp;quot;,&amp;quot;&amp;quot;}
+int a3[5] = {0,1,2} //a3[] = {0,1,2,0,0}
+int a2[] = {0,1,2} //ok.
+char a4[] = &amp;quot;c++&amp;quot;; // fine, null character in the end.
+char a4[3] = &amp;quot;c++&amp;quot; //error, no space for null character.
+int a6[] = a2 // error, no copy or assignment.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Complicated Array declarations
+&lt;ul&gt;
+&lt;li&gt;reading types of complicated array declaration should from inside to outside.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int (*Parray)[10] = &amp;amp;arr // inside parentheses, we know Parray is a pointer. it is a pointer to an int array of size of 10.
+int *(&amp;amp;arry)[10] = ptrs. // inside parentheses, we know arry is a reference. It is a reference to an int pointer array of size of 10.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;accessing-the-elements-of-an-array&#34;&gt;Accessing the elements of an array.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;When we use a variable to subscript an array, we normally should define that variable to have type &lt;code&gt;size_t&lt;/code&gt;. &lt;code&gt;size_t&lt;/code&gt; is an unsigned interger big enough to hold the size of any object in memory.&lt;/li&gt;
+&lt;li&gt;Operations using subscripy on array is similar those in vectors, be careful with &lt;code&gt;buff overflow&lt;/code&gt; bugs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pointer-and-arrays&#34;&gt;Pointer and Arrays&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The complier automatically substitutes a pointer to the first element&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string nums[] = {&amp;quot;one&amp;quot;,&amp;quot;two&amp;quot;,&amp;quot;three&amp;quot;};
+string *p = nums;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Pointers that address elements in an array is treated as interators. the begin iterator is the first element, the end iterator is the address of nonexistent element one past the last element.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int arr[] = {1,2,3,4,5};
+int *p = arr; 
+++p; //p now pointer tp arr[1]
+int *e = &amp;amp;arr[6]; // pointer just past the last element in arr.
+auto size = p - e; //the array size.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;c++11&lt;/code&gt;: &lt;code&gt;begin(arr)&lt;/code&gt; and &lt;code&gt;end(arr)&lt;/code&gt; equal to &lt;code&gt;p&lt;/code&gt; and &lt;code&gt;e&lt;/code&gt; respectively. These functions are defined in the &lt;code&gt;iterator&lt;/code&gt; header.&lt;/li&gt;
+&lt;li&gt;Pointer Arithmetic: same as iterator in &lt;code&gt;vector&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;//what the complier does when subscript 
+int arr[5] = {1,2,3,4,5};
+int i = arr[2];
+// Complier treate it as
+i = *(arr + 2);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Unlike subscript for vector and string, the index of the build-in subscript operator is not an unsigned type.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;// The following code is not valid for vector and string
+int *p = &amp;amp;arr[2];
+int j = p[1]; // the third element in arr.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;c-style-strings&#34;&gt;C-style strings&lt;/h2&gt;
+&lt;h2 id=&#34;multidimentianal-arrays&#34;&gt;Multidimentianal arrays&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Multidimentianal arrays&lt;/code&gt; are just nested arrays&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;initialization&#34;&gt;Initialization&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int ia[3][4] = {0}; //array of size 4; each element is an array of size 4; all elements are 0
+int ia2[3][4] = {
+    {0,1,2,3},
+    {4,5,6,7},
+    {8,9,10,11}
+}; 
+int ia3[3][4] = { { 0 }, { 4 }, { 8} }; //explictly initialize only element 0 in each row.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Pointers
+&lt;ul&gt;
+&lt;li&gt;a pointer to a 2-dimention array is the address of its first inner array.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int *ip[4]&lt;/code&gt; and &lt;code&gt;int (*ip)[4]&lt;/code&gt; are different, the first is an array of pointers, the second is a pointer a an array.&lt;/li&gt;
+&lt;li&gt;when we use &lt;code&gt;range for&lt;/code&gt; to traverse an multi-array, the control variable for outer loop should be as reference. If we don&amp;rsquo;t, the complier will automatically convert it to a pointer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;// using for loop for 2-dimentional array int ia[3][4]
+for (auto p = ia; p != ia + 3; p++) {
+    for (auto q = *p; q != *p + 4; q++) {
+        cout &amp;lt;&amp;lt; *q &amp;lt;&amp;lt; &#39; &#39;;
+    }
+}
+for (auto &amp;amp;p : ia) {
+    for (int j : p) {
+        cout &amp;lt;&amp;lt; l &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+    }
+}
+// using range for
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;: Compiling Complex Program</title>
+      <link>/post/c&#43;&#43;_compiling_complex_program/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/c&#43;&#43;_compiling_complex_program/</guid>
+      <description>&lt;h2 id=&#34;dependency&#34;&gt;Dependency&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dependency in C++ occurs as following
+&lt;ul&gt;
+&lt;li&gt;executable depends on &lt;code&gt;.o&lt;/code&gt; files. (linking)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.o&lt;/code&gt; files depends on &lt;code&gt;.c&lt;/code&gt; files. (compling)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.c&lt;/code&gt; files depends on &lt;code&gt;.h&lt;/code&gt; files. (including)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cycles in &lt;code&gt;#include&lt;/code&gt; are broken through &lt;code&gt;#ifndef&lt;/code&gt; checks
+&lt;img src=&#34;../img/dependency.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/li&gt;
+&lt;li&gt;When changes are made to &lt;code&gt;x.h&lt;/code&gt; and &lt;code&gt;x.c&lt;/code&gt;, we do not need to recomplie every single &lt;code&gt;.c&lt;/code&gt; file. Only recompile &lt;code&gt;x.c&lt;/code&gt; and linking &lt;code&gt;x.o&lt;/code&gt;,&lt;code&gt;y.o&lt;/code&gt; and &lt;code&gt;z.o&lt;/code&gt; will be sufficient.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;make&#34;&gt;Make&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make&lt;/code&gt; is a system command taking a dependency graph and uses file-changing time to trigger rules that bring the dependecy up-to-date.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;make does not understand relationship among sources.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Make file can have any names, but &lt;code&gt;make&lt;/code&gt; command will implicit look for &lt;code&gt;makefile&lt;/code&gt; or &lt;code&gt;Makefile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Basic syntax of &lt;code&gt;makefile&lt;/code&gt; (bash)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;variable = value # variable
+target: dependency1 dependency1 ...
+	command1
+	command2
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;command must be indented by one &lt;code&gt;tab&lt;/code&gt; character&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The above example have the following dependecy tree&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x.o&lt;/code&gt; file is a product of &lt;code&gt;x.c&lt;/code&gt;, and is dependent on &lt;code&gt;x.h&lt;/code&gt;,&lt;code&gt;y.h&lt;/code&gt; and &lt;code&gt;z.h&lt;/code&gt;.
+&lt;img src=&#34;../img/dependency2.png&#34; alt=&#34;alternative text for search engines&#34;&gt;&lt;/li&gt;
+&lt;li&gt;make file for the above example will look like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;CXX = g++	#complier
+CXXFLAGS = -g -Wall -c #comploer flags
+OBJECTS = x.o y.o z.o # object files forming executable
+EXEC = a.out. # executable name
+
+${EXEC}:${OBJECT} #link step
+	${CXX} ${OBJECTS} -o ${EXEC}
+x.o:x.c x.h y.h z.h
+	${CXX} ${CXXFLAGS} x.c
+y.o:y.c y.h z.h
+	${CXX} ${CXXFLAGS} y.c
+z.o:z.c z.h y.h
+	${CXX} ${CXXFLAGS} z.c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;${CXX} ${CXXFLAGS} x.c&lt;/code&gt; is dedundent since &lt;code&gt;makefile&lt;/code&gt; could deduces this by the dependency structure &lt;code&gt;x.o:x.c x.h y.h z.h&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cleaner make file show as below&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;CXX = g++	#complier
+CXXFLAGS = -g -Wall -c #comploer flags
+OBJECTS = x.o y.o z.o # object files forming executable
+EXEC = a.out. # executable name
+
+${EXEC}:${OBJECT} #link step
+	${CXX} ${OBJECTS} -o ${EXEC}
+x.o:x.c x.h y.h z.h # target/dependecy/commands
+y.o:y.c y.h z.h
+z.o:z.c z.h y.h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;automate-target-and-dependencies&#34;&gt;Automate target and dependencies&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;CXX = g++ # compiler
+CXXFLAGS = -g -Wall -MMD  # compiler flags, remove -c
+OBJECTS = x.o y.o z.o  # object files forming executable # executable name
+DEPENDS = ${OBJECTS:.o=.d} # object files forming executable # substitute “.o” with “.d”
+EXEC = a.out # executable name
+${EXEC} : ${OBJECTS} # link step
+	${CXX} ${OBJECTS} -o ${EXEC}
+
+-include ${DEPENDS}  # copies files x.d, y.d, z.d (if exists)
+.PHONY: clean  # not a file name
+clean: # remove files that can be regenerated
+	rm -rf ${DEPENDS} ${OBJECTS} ${EXEC} # alternative *.d *.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Prepocessor traverses all include file, so it knows all source-file dependency&lt;/li&gt;
+&lt;li&gt;g++ flag &lt;code&gt;-NMD&lt;/code&gt; writes out a dependency graph for source-file to file &lt;code&gt;source-file.d&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;file&lt;/th&gt;
+&lt;th&gt;contents&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;x.d&lt;/td&gt;
+&lt;td&gt;x.o: x.c x.h y.h z.h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;y.d&lt;/td&gt;
+&lt;td&gt;y.o: y.C y.h z.h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;z.d&lt;/td&gt;
+&lt;td&gt;z.o: z.C z.h y.h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-include&lt;/code&gt; reads the &lt;code&gt;.d&lt;/code&gt; files containing dependecies.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.PHONY&lt;/code&gt;: Without &lt;code&gt;.PHONY&lt;/code&gt;, &lt;code&gt;make clean&lt;/code&gt; command works fine if there is no file named &amp;lsquo;clean&amp;rsquo;; however, there will be a problem when a file named &lt;code&gt;clean&lt;/code&gt; exists. Once we defined &lt;code&gt;.PHONY clean&lt;/code&gt;, &lt;code&gt;make clean&lt;/code&gt; will run the recipe regardless of whether there is a file named &lt;code&gt;clean&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We build a universal &lt;code&gt;makefile&lt;/code&gt; for all projects.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer Chap 1 Getting Started</title>
+      <link>/post/c&#43;&#43;_primer_chap1/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/c&#43;&#43;_primer_chap1/</guid>
+      <description>&lt;h2 id=&#34;writing-a-simple-c-program&#34;&gt;Writing a simple C++ program&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;One cpp project can only have one &lt;code&gt;main&lt;/code&gt;, the OS excute a cpp program by calling &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;brife-introduction-on-complier&#34;&gt;Brife introduction on complier&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GNU&lt;/code&gt; &lt;code&gt;g++ -std=c++11 -o prog1 prog.cc&lt;/code&gt;. &lt;code&gt;-o&lt;/code&gt; is an arguement of &lt;code&gt;g++&lt;/code&gt;, it tell the complier generate a executable file named &lt;code&gt;prog1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;-Wall&lt;/code&gt; as argument of &lt;code&gt;GNU&lt;/code&gt; to enable warnings.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;$ echo $?&lt;/code&gt; to view exit code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;io&#34;&gt;IO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IOstream libarary &lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operator will return its left-hand operand&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;std::endl&lt;/code&gt; will clean the &lt;code&gt;buffer&lt;/code&gt;, in which all outputs will be outputed into screen, instead of waiting in a memory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int v1 = 0, v2 = 0;
+std::cout &amp;lt;&amp;lt; &amp;quot;Enter two numbers&amp;quot; &amp;lt;&amp;lt; endl;
+std::cin &amp;gt;&amp;gt; v1 &amp;gt;&amp;gt; v2;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;reading-an-unknown-number-of-inputs&#34;&gt;Reading an unknown number of Inputs&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;while (std::cin &amp;gt;&amp;gt; value)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;We could use &lt;code&gt;istream&lt;/code&gt; as a condition, it will be &lt;code&gt;true&lt;/code&gt; if the stram is valid&lt;/li&gt;
+&lt;li&gt;The stream will be invalid if we encounter &lt;code&gt;EOF&lt;/code&gt; (&lt;code&gt;Ctrl + D&lt;/code&gt; on Mac)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;file-redirection&#34;&gt;File redirection&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;addItems &amp;lt; infile &amp;gt; outfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;We have an executable file names &lt;code&gt;addItems&lt;/code&gt;, the above bash command reads inputs from &lt;code&gt;infile&lt;/code&gt; and write into &lt;code&gt;outfile&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Zhi Wang">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="5.1 Simple Statement  Expression Statement: when add a semicolon after a expression. A Expression Statement usually have side effects, otherwise, it is useless. Null statement is a single semicolon. A null statement is useful when the language requires a statement but the program&rsquo;s logic does not.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/c&#43;&#43;_primer_chap5/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/c&#43;&#43;_primer_chap5/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/c&#43;&#43;_primer_chap5/">
+  <meta property="og:title" content="C&#43;&#43; Primer Chap 5 Statements | Academic">
+  <meta property="og:description" content="5.1 Simple Statement  Expression Statement: when add a semicolon after a expression. A Expression Statement usually have side effects, otherwise, it is useless. Null statement is a single semicolon. A null statement is useful when the language requires a statement but the program&rsquo;s logic does not."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-06-27T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-06-27T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/c++_primer_chap5/"
+  },
+  "headline": "C++ Primer Chap 5 Statements",
+  
+  "datePublished": "2020-06-27T00:00:00Z",
+  "dateModified": "2020-06-27T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Zhi Wang"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "5.1 Simple Statement  Expression Statement: when add a semicolon after a expression. A Expression Statement usually have side effects, otherwise, it is useless. Null statement is a single semicolon. A null statement is useful when the language requires a statement but the program\u0026rsquo;s logic does not."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>C&#43;&#43; Primer Chap 5 Statements | Academic</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+      <div class="d-none d-xl-block col-xl-2 docs-toc">
+        <ul class="nav toc-top">
+          <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+        </ul>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#51-simple-statement">5.1 Simple Statement</a></li>
+    <li><a href="#52-statement-scope">5.2 Statement scope</a></li>
+    <li><a href="#53-conditional-statements">5.3 Conditional Statements</a></li>
+    <li><a href="#54-iterative-statement">5.4 Iterative Statement</a>
+      <ul>
+        <li><a href="#while-statement">while statement</a></li>
+        <li><a href="#for-statement">for statement</a></li>
+      </ul>
+    </li>
+    <li><a href="#55-jump-statement">5.5 Jump Statement</a></li>
+    <li><a href="#56-try-blcoks-and-exception-handling">5.6 try Blcoks and Exception Handling</a></li>
+  </ul>
+</nav>
+        
+      </div>
+      <main class="col-12 col-md-0 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
+
+        <article class="article">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>C&#43;&#43; Primer Chap 5 Statements</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 27, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+            <div class="article-container">
+              <div class="article-style">
+                <h2 id="51-simple-statement">5.1 Simple Statement</h2>
+<ul>
+<li><code>Expression Statement</code>: when add a semicolon after a expression. A <code>Expression Statement</code> usually have side effects, otherwise, it is useless.</li>
+<li><code>Null statement</code> is a single semicolon. A <code>null statement</code> is useful when the language requires a statement but the program&rsquo;s logic does not.</li>
+<li><code>Compound Statement</code>: usually refer to as <code>blocl</code> ( &ldquo;{ }&rdquo; ). A block is a <code>scope</code>.</li>
+</ul>
+<h2 id="52-statement-scope">5.2 Statement scope</h2>
+<ul>
+<li>Variables define inside <code>while</code>, <code>if</code>, <code>switch</code> and <code>for</code> statement are only valid inside the statement.</li>
+</ul>
+<h2 id="53-conditional-statements">5.3 Conditional Statements</h2>
+<ul>
+<li>C++ provides two conditional statements. The <code>if</code> statement and the <code>switch</code> statement.</li>
+<li><code>if</code> statement</li>
+</ul>
+<pre><code class="language-c++">if (condition) 
+    statement 
+else 
+    statement2
+</code></pre>
+<pre><code>* Condition must be enclosed in parentheses. Condition can be an expression or an initialized variable declaration. Statements can be replaced by blocks.
+* `Dangling else`: each `else` is matched with the closest preceding unmatched `if`. We can also make `else` part of outer `if` by enclosing the inner `if` in a block.
+</code></pre>
+<ul>
+<li><code>Switch statement</code> provides a convernient way to selecting among a number of fixed alternative.</li>
+</ul>
+<pre><code class="language-c++">char cn;
+switch (cn) {
+    case 'a': 
+        ++acnt;
+        break;
+    case 'e':
+        ++ecnt;
+        break;
+}
+</code></pre>
+<pre><code>* A `switch` statement executes by evaluating the parenthesized expression that follows the keyword `switch`. The expression is converted to `integral type`, the result of expression is compared with the value associated with each `case`.
+* If the expression matched the value of a `case` label (&quot;case 'a'&quot;), execuation begins with the first statement following that label.
+* After a `case` label is matched, execuation continues across all the remaining `case`s.
+* A `case` label must be a `constant integral` expression.
+* Each `case` label can only contain one value (`case 1,2,3:` is an error).
+* Don't forget `break` after a case label.
+</code></pre>
+<pre><code class="language-c++">switch(ch) {
+    case 'a':
+        ++acnt;
+    case 'e':
+        ++ecnt;
+    case 'i':
+        ++icnt;
+}
+// In this case, when ch is matched with 'a', then all acnt, ecnt and icnt increments.
+switch(ch) {
+    case 'a':
+    case 'e':
+    case 'i':
+        ++vowelcnt;
+} // Any case of 'a', 'e' and 'i' will increment vowelcnt.
+</code></pre>
+<pre><code>* `default` label: The statements following the `default` label are execuated when no `case` label matches the value of the `switch` expression.
+* Execuation in a `switch` can jump across `case` labels. If such jump bypasses initialization of variable (both implict and explict initializations), then the complier will error. (One remedy is add curly braces to narrow the scope of initialization.)
+</code></pre>
+<h2 id="54-iterative-statement">5.4 Iterative Statement</h2>
+<ul>
+<li><code>while</code> and <code>for</code> statement test the condition before execuating the body. The <code>do while</code> executes the body and then tests its condition.</li>
+</ul>
+<h3 id="while-statement"><code>while</code> statement</h3>
+<pre><code class="language-c++">while (condition)
+    statement
+</code></pre>
+<ul>
+<li>Variables defined in <code>while</code> condition or <code>while</code> body are created and destory on each iteration.</li>
+</ul>
+<h3 id="for-statement"><code>for</code> statement</h3>
+<ul>
+<li><code>traditional for statement</code></li>
+</ul>
+<pre><code class="language-c++">for (initializer; condition; expression) {
+    statement
+}
+</code></pre>
+<pre><code>* `initializer` must be a declaration statement, an expression statement or a null statement.
+* 1. `initializer` will be execuated only once. 2. If condition eveluates as `true`, then the for boby execuates; otherwise, the loop terminates. 3.After `for` body execuates, `expression` execuates.
+* `inti-statement` can defined several objects, but they must be separated by `comma`, so they must have same base type.
+* `omiting parts of the for header`: A `for` loop can omit any (or all) of `init-statement`, `condition`, or `expression`, but we cannot omit semicolon. Note that, omiting `condition` is equilavent to writing `true` as condition.
+</code></pre>
+<ul>
+<li>Range <code>for</code> statement</li>
+</ul>
+<pre><code class="language-c++">for (declaration : expression)
+    statement
+
+//What a range for really does
+for (auto beg = v.begin(), end = v.end(); beg != end; ++beg) {
+    //statements
+}
+</code></pre>
+<pre><code>* `expression` must represent a sequence. `declaration` defines a variable.
+* We usually use keyword `auto` as type in declaration.
+* If we want to mutate elements, we should use reference type.
+</code></pre>
+<ul>
+<li><code>do while</code> statement</li>
+</ul>
+<pre><code class="language-c++">do
+    statement
+while (condition); // A do while ends with a semicolon.
+
+</code></pre>
+<pre><code>* Since `do while` execuate statement before condition, then it is not allowed to declare variable in a do condition.
+* If we add curly braces in `do` statement, then variables defined in `do` statement are not accessible in `condition` (scope problem).
+</code></pre>
+<h2 id="55-jump-statement">5.5 Jump Statement</h2>
+<ul>
+<li>Jump statement interrupt the flow of execution. C++ offers four jumps: <code>break</code>, <code>continue</code>, <code>goto</code> and <code>return</code>.</li>
+<li>The <code>break</code> statement terminates the <strong>nearest</strong> enclosing <code>while</code>, <code>do while</code>, <code>for</code> or <code>switch</code> statement.</li>
+<li>A <code>continue</code> statement terminates the current iteration of the nearest enclosing loop.
+<ul>
+<li>A <code>continue</code> statement can appear only inside a <code>for</code>, <code>while</code> or <code>do while</code>, and <code>swith</code> if it is embedded inside an iterative statement.</li>
+<li>After <code>continue</code>, execution continues by evaluating the <code>condition</code> in <code>while</code> and <code>do while</code>; and by evaluating the <code>expression</code> in for loop.</li>
+</ul>
+</li>
+<li>A <code>goto</code> statement provides an unconditional jump from the <code>goto</code> to a another statement in the <strong>same function</strong>.
+<ul>
+<li>As <code>switch</code> statement, jump bypasses an initialization is illegal</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-c++">goto label;
+end: return // labeled statementl may be the target of a goto
+
+goto end;
+int ix = 10;
+end: 
+    ix = 42; //error, bypasses an initialization
+</code></pre>
+<h2 id="56-try-blcoks-and-exception-handling">5.6 <code>try</code> Blcoks and Exception Handling</h2>
+<ul>
+<li><code>Exception</code>s are used to handle <code>run-time</code> errors.</li>
+<li><code>Exception</code> handling is generally used when one part of a program detects a problem that it cannot resolve.</li>
+<li><code>throw</code>
+<ul>
+<li>A detecting part (where problem arises) of a program uses a <code>throw</code> expression to raise an exception. A <code>throw</code> consists of the keyword <code>throw</code> followed by an expression (an object, <code>runtime_error</code> is defined in <code>stdexcept</code> header.)</li>
+<li>Throwing an <code>exception</code> terminates the current function and tranfers control to a handler.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-c++">if (item1.isbn() != item2.isbn()) {
+    throw runtime_error(&quot;Data must refer to same ISBN&quot;);
+}
+</code></pre>
+<ul>
+<li><code>try</code> block
+The general form of a <code>try</code> block is</li>
+</ul>
+<pre><code class="language-c++">try {
+    program_statements
+} catch (exception_declaration) {
+    handler-statements
+} catch (exception_declaration) {
+    handler-statements
+} //here
+</code></pre>
+<pre><code>* A `catch` consist of three parts: the keyword `catch`, the declaration of an object within parentheses (`exception declaration`), and a block of `exception` handler. 
+* After a catch block execuating, the control flow will falls through the closing brace of `try` (__here__ in above code).
+* Objects in `stdexcept` header have member function `.what()`, it prints the error messege of a exception.
+* E.g. A() calls B(), B() call C(). C throw an exception, it will search a catch hendler in B, but if search fails, function B will terminates, and search catch hendler in A. Ans so on.
+</code></pre>
+<blockquote>
+<p>Variables defined in try block is inaccessible in other blocks &ndash; in particularm they are not accessible to the catch clause.</p>
+</blockquote>
+<ul>
+<li>Standard Exceptions
+<ul>
+<li>The <code>exception</code> defines a general kink of exception class named <code>exception</code>. It communicates only that an exception occured but no additional info. We can create, copy and assign any type of exceptions to <code>exception</code> type (e.g. <code>runtime_error</code> is a derived class of <code>exception</code>)</li>
+<li>The <code>stdexcept</code> header defines several general purpose exception classes.</li>
+<li>The <code>new</code> header defines the <code>bad_alloc</code> exception type.</li>
+<li>The <code>type_info</code> defines <code>bad_cast</code> exception type.</li>
+<li>We can default initialize <code>exception</code>, <code>bad_alloc</code> and <code>bad_cast</code> objects (but we cannot initialize them). Other exceptions don&rsquo;t suppot default initialize, we can only initialize them (opposite way).
+<img src="../img/exception.png" alt="image"></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+              
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/c&#43;&#43;_primer_chap5/&amp;text=C&#43;&#43;%20Primer%20Chap%205%20Statements" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/c&#43;&#43;_primer_chap5/&amp;t=C&#43;&#43;%20Primer%20Chap%205%20Statements" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=C&#43;&#43;%20Primer%20Chap%205%20Statements&amp;body=/post/c&#43;&#43;_primer_chap5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/c&#43;&#43;_primer_chap5/&amp;title=C&#43;&#43;%20Primer%20Chap%205%20Statements" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=C&#43;&#43;%20Primer%20Chap%205%20Statements%20/post/c&#43;&#43;_primer_chap5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/c&#43;&#43;_primer_chap5/&amp;title=C&#43;&#43;%20Primer%20Chap%205%20Statements" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/zhi-wang/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q90_lanczos_center.jpg" alt="Zhi Wang">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/">Zhi Wang</a></h5>
+        <h6 class="card-subtitle">Student at University of Waterloo</h6>
+        <p class="card-text">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/gcushen" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+            </div>
+        </article>
+  
+      </main>
+    </div>
+  </div>
+  
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

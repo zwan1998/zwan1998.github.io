@@ -1,0 +1,1391 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Zhi Wang">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This is just a review of python, Not contain every details.  Expressions  / in python is not an integer dividion (E.g. 25/4 = 6.25). Mutiple an integeri with a string with result a string repeating i times.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/python/python1/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/python/python1/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/python/python1/">
+  <meta property="og:title" content="Python01 Review | Academic">
+  <meta property="og:description" content="This is just a review of python, Not contain every details.  Expressions  / in python is not an integer dividion (E.g. 25/4 = 6.25). Mutiple an integeri with a string with result a string repeating i times."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-07-03T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-07-03T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/python/python1/"
+  },
+  "headline": "Python01 Review",
+  
+  "datePublished": "2020-07-03T00:00:00Z",
+  "dateModified": "2020-07-03T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Zhi Wang"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "This is just a review of python, Not contain every details.  Expressions  / in python is not an integer dividion (E.g. 25/4 = 6.25). Mutiple an integeri with a string with result a string repeating i times."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Python01 Review | Academic</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+      <div class="d-none d-xl-block col-xl-2 docs-toc">
+        <ul class="nav toc-top">
+          <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+        </ul>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#expressions">Expressions</a></li>
+    <li><a href="#assignment">Assignment</a></li>
+    <li><a href="#io-operators">IO operators</a></li>
+    <li><a href="#control-flow">Control flow</a>
+      <ul>
+        <li><a href="#boolean-and-comparision-operator">Boolean and comparision operator</a></li>
+        <li><a href="#if-else-elif">if, else, elif</a></li>
+        <li><a href="#while">while</a></li>
+        <li><a href="#for">for</a></li>
+      </ul>
+    </li>
+    <li><a href="#functions">Functions</a>
+      <ul>
+        <li><a href="#scope">Scope</a></li>
+        <li><a href="#tryexcept">try/except</a></li>
+      </ul>
+    </li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#dictionary">Dictionary</a></li>
+    <li><a href="#strings">strings</a></li>
+    <li><a href="#build-in-functions">Build-in functions</a>
+      <ul>
+        <li><a href="#third-party-modules">third-party modules</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-a-python-program">Run a python program</a></li>
+  </ul>
+</nav>
+        
+      </div>
+      <main class="col-12 col-md-0 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
+
+        <article class="article">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Python01 Review</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 3, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+            <div class="article-container">
+              <div class="article-style">
+                <ul>
+<li>This is just a review of <code>python</code>, Not contain every details.</li>
+</ul>
+<h2 id="expressions">Expressions</h2>
+<ul>
+<li><code>/</code> in python is not an integer dividion (E.g. 25/4 = 6.25).</li>
+<li>Mutiple an integer<code>i</code> with a string with result a string repeating <code>i</code> times.</li>
+<li>Python <strong>doesn&rsquo;t</strong> support <code>++</code> operator, but support <code>+=, -=, *=, /=, %=</code> operators.</li>
+<li><strong>type</strong> function, <code>type(obj)</code> will returns the type of object, the object can be a literal.</li>
+</ul>
+<h2 id="assignment">Assignment</h2>
+<ul>
+<li>python doest&rsquo;t need to spetify types when doing assignments.</li>
+<li>Python supports mutiple assignment, the LHS is mutiple variable name, and the RHS is a list (or values separete by comon)</li>
+<li>Python assignment for mutable values(list,dictionary) are copy by reference, not copy by value.</li>
+</ul>
+<pre><code class="language-python">spam = 3
+spam = &quot;hello world&quot;
+# Mutiple assignment
+spam= [1,2,3]
+i1,i2,i3 = spam
+# Swap two values using mutiple assignment 
+a, b = 'AAA', 'BBB'
+a , b = b , a
+</code></pre>
+<pre><code class="language-python">spam = [1,2,3,4,5]
+cheese = spam
+cheess[1] = 100 # spam and cheess are both equal to [1,100,3,4,5] 
+</code></pre>
+<h2 id="io-operators">IO operators</h2>
+<ul>
+<li><code>print()</code> add a newline at the end. To aviod this, use keyword argument end: <code>print('Hello', end = '')</code>.</li>
+</ul>
+<pre><code class="language-python">myName = input() # Wait the user type until the user entering a newline character
+print(myName) # output function.
+print('dog','cat','goose') # -&gt; 'dog cat goose'
+print('dog','cat','goose', sep = 'A') # -&gt; 'dogAcatAgoose'
+</code></pre>
+<h2 id="control-flow">Control flow</h2>
+<h3 id="boolean-and-comparision-operator">Boolean and comparision operator</h3>
+<ul>
+<li>Boolean in python are <code>True</code> and <code>False</code></li>
+<li>Comparision operator are indentical to C++ <code>==, != , &gt;=, &gt;, &lt;=, &lt;</code></li>
+<li>python allow comparision between different types</li>
+</ul>
+<pre><code class="language-python">42 == '42' # allow, but will be evaluated to false
+42 == 42.0 # allow, True
+
+</code></pre>
+<ul>
+<li>Boolean operators is different with C++: <code>and, or, not</code>, which are english words.</li>
+</ul>
+<h3 id="if-else-elif"><code>if, else, elif</code></h3>
+<pre><code class="language-python"># syntax 1. don't forget : 2, no braces, but indention.
+if (condition):
+    statements1
+elif (condition2):
+    statements2
+else:
+    statements3
+</code></pre>
+<ul>
+<li>For <code>int</code>: &lsquo;0&rsquo; is false; For <code>float</code>: &lsquo;0.0&rsquo; is false; For <code>string</code>: '&rsquo; is false</li>
+</ul>
+<h3 id="while"><code>while</code></h3>
+<ul>
+<li><code>break</code> and <code>continue</code> are also valid in python.</li>
+</ul>
+<pre><code class="language-python"># syntax
+while (condition):
+    statements
+# endof while loop
+</code></pre>
+<h3 id="for"><code>for</code></h3>
+<ul>
+<li><code>range(a,b,c)</code> has a type <code>range</code>. It means starts at <code>a</code>, end at <code>b</code>, each iteration it increment or decrement <code>c</code>.</li>
+<li>Like c++, the object follows <code>in</code> should be a sequential object (like <code>list</code>).</li>
+<li>One useful trick in python is use <code>range(len(list))</code> follows <code>in</code>.</li>
+</ul>
+<pre><code class="language-python"># sytax
+for i in range(n): # i = 0,1,2,3,...,n-1
+    statements
+# endof for loop
+</code></pre>
+<h2 id="functions">Functions</h2>
+<ul>
+<li>Every functions has a <code>return</code> value. If not specify, it will return a <code>None</code> type.</li>
+</ul>
+<pre><code class="language-python">def function_name(parameter1,parameter2):
+    statements
+    return val #optional 
+
+# Calling a function
+function_name(arg1,arg2)
+</code></pre>
+<h3 id="scope">Scope</h3>
+<ul>
+<li>Unlike C++, which each block is a scope. Python only has two scopes: golbal scope (outside any function) and local scope(inside a function).</li>
+<li>python doesn&rsquo;t distinguish declaration and assignment, so in order to use a golbal in a function, must specify it.</li>
+</ul>
+<pre><code class="language-python">def spam():
+    global eggs # use golal eggs
+    eggs = 'Hello' # change the value of eggs to 'hello'
+    print(eggs)
+eggs = 42
+spam()
+print(eggs) # -&gt; 'Hello'
+</code></pre>
+<h3 id="tryexcept"><code>try/except</code></h3>
+<ul>
+<li>Similar to C++ <code>try/catch</code>. If no object follows <code>except</code>, it will catch all types of errors.</li>
+</ul>
+<pre><code class="language-python">def div42by(divideby):
+    try:
+        return 42/divideby
+    except ZeroDivisionError:
+        print('Error: Your tried to divide by 0')
+</code></pre>
+<h2 id="lists">Lists</h2>
+<ul>
+<li>A list is a container that contains values
+<ul>
+<li>types in a list could not be same.</li>
+<li><code>index</code> can be negative: -1 refer to the last element; <code>index</code> returns a single value.</li>
+<li><code>slice</code> (e.g. <code>spam[0:2]</code>) return a list of value. If we left the beginning empty (e.g. <code>spam[:2]</code>), it means starts at 0. If we left the end empty (e.g. <code>spam[1:]</code>), it means end at last element.</li>
+<li>delete an element: use <code>del</code> (<code>del spam[2]</code> means delete the second element)</li>
+<li>length of a list (<code>len()</code> function)</li>
+<li>Turn a value to a list: <code>list()</code> function</li>
+<li><code>in</code> and <code>not in</code> operator: whether a value in a list.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python"># Simple list
+spam = ['cat', 'dog', 'goose'] # spam is a list.
+spam[0] # subscript access element in a list. -&gt; 'cat'
+# List of lists
+spam2 = [ ['cat','dog'], ['goose','elephant'] ]
+spam2[0] # -&gt; ['cat,'dog']
+spam2[1][0] # -&gt; 'goose'
+# Slices
+spam[0:2] # refer to the index at 0, up to (does not include) 2 -&gt; ['cat','dog']
+# mutate a list
+spam[1:3] = [1,2,3] # -&gt; spam = ['cat',1,2,3]
+# list()
+list('hello') # -&gt; ['h','e','l','l','o']
+list(range(0,5)) # -&gt; [0,1,2,3,4]
+</code></pre>
+<ul>
+<li>
+<p>Python default treate <code>list</code> initialization and assignment as reference.</p>
+<ul>
+<li>All variable has type <code>list</code> is a reference to its initialization.</li>
+</ul>
+</li>
+<li>
+<p><code>list</code> methods</p>
+<ul>
+<li><code>index()</code>: <code>listname.index(value)</code> returns the index of value in listname. If value is not found, it raise an <code>ValueError</code> exception. If duplicate value, it will return the first occurance.</li>
+<li><code>append()</code>:<code>listname.appand(value)</code> appand value into the end of listname.</li>
+<li><code>insert()</code>: <code>listname.insert(i,value)</code> inserts value at the ith index of listname.</li>
+<li><code>remove()</code>: <code>listname.remove(value)</code> remove value in listname, if value is not in listname, a ValueError raises. If duplicate value, it will remove the first occurance.</li>
+<li><code>sort()</code>: <code>listname.sort()</code> only integeral and string type can be sort. <code>sort()</code> can take arguments, <code>reverse = True</code> sorts in reverse order. <code>key=str.lower</code> do not distinguish lower and upper case.</li>
+</ul>
+</li>
+<li>
+<p><code>string</code> can be treated as a list, some functions applies to <code>list</code> also applies to <code>string</code>.</p>
+<ul>
+<li>However, <code>string</code> is immutable. so <code>str[0] = 'a'</code> is invalid. Act like a constant list.</li>
+</ul>
+</li>
+</ul>
+<h2 id="dictionary">Dictionary</h2>
+<ul>
+<li>Stores <code>key-value</code> pair <strong>key:value</strong> pair.</li>
+<li>Dictionary is mutable.</li>
+<li><code>key-value</code> pairs in dictionary are unordered.</li>
+<li>use <code>in</code> and <code>not in</code> to verify whether a <strong>key</strong> is in a list.</li>
+<li><code>keys()</code>, <code>values()</code> and <code>items()</code> methods returns a list&rsquo;s key, value and item respectively. The return type is <code>dic_key</code>, <code>dic_value</code>, use <code>list()</code> function to convert it to a list.</li>
+<li><code>get()</code>: <code>dic.get(key,default_value)</code> returns <code>dic[key]</code> is key is in the list, and return default_value if not.</li>
+</ul>
+<pre><code class="language-python">myCat = {'size':'fat', 'color':'grey', 'weight':20}
+myCat['size'] #-&gt; 'fat'
+myCat['weight'] #-&gt; KeyError exception
+
+# for loop of a dictionary
+for value in dic.values():
+for key in dic.keys():
+for key ,value in dic.items():
+
+#mutate a dic
+myCat['height'] = 40 # insert 'height':40 into a myCat. If 'height' already excists in myCat, it will mutate the value.
+myCat.setdefault('height',100) # Only set 'height' to 100 when 'height' does not exist in myCat.
+</code></pre>
+<h2 id="strings"><code>string</code>s</h2>
+<ul>
+<li><code>string</code> in python can be enclosed by single quote or double quote.</li>
+<li>Escape characters: <code>\', \&quot;, \t, \n, \\</code>.</li>
+<li><code>raw string</code>: A string start with &lsquo;r&rsquo; do not treate backslash as escape character.</li>
+<li><code>multiple-line string</code>: treates all white character as part of a string.</li>
+<li><code>string</code> are immutable list of characters. Indexes, slices and in and not in operators all work with strings.</li>
+</ul>
+<pre><code class="language-python">r&quot;This is a \cat&quot;  # raw string
+
+&quot;&quot;&quot;multi-line
+string&quot;&quot;&quot;   # multi-line string
+
+</code></pre>
+<ul>
+<li><code>string</code> methods
+<ul>
+<li>Note that strings are immutable, so all string methods return a new string instead mutate the existing string.</li>
+<li><code>str.upper()</code>, <code>str.lower()</code> returns the upper / lower case.</li>
+<li><code>str.isupper()</code>, <code>str.islower()</code> returns the whether a string is <strong>all</strong> upper / lower case. Note that in order to be evalauted to true, there must be at least one lower/upper case character.</li>
+<li><code>isalpha()</code> - contains letters only; <code>isalnum()</code> - contains letters and number only; <code>isspace()</code> - contains whitespace only; <code>istitle()</code> contains titlespace only.</li>
+<li><code>str.startswith(str2)</code> and <code>str.endswith(str2)</code> returns true of &lsquo;str&rsquo; starts / ends with &lsquo;str2&rsquo;.</li>
+<li><code>str.join(list)</code> combine &lsquo;list&rsquo; of string together with &lsquo;str&rsquo; between each two adjacent ones.</li>
+<li><code>split()</code> function takes a function and returns a list. <code>str.split(str2)</code> split &lsquo;str&rsquo; on each occurance of <code>str2</code>.</li>
+<li><code>str.rjust(int,char)</code> or <code>str.ljust(int,char)</code> adjusts <code>str</code> with padding or ending <code>char</code> to make the length to be <code>int</code></li>
+<li><code>str.center(int,char)</code> is similar to <code>rjust</code> but <code>str</code> appers on middle.</li>
+<li><code>str.strip()</code> strip the padding and ending white character.</li>
+<li><code>str.replace(str1,str2)</code> replace every occurance of &lsquo;str1&rsquo; in &lsquo;str&rsquo; with &lsquo;str2&rsquo;.</li>
+</ul>
+</li>
+<li>string formating</li>
+</ul>
+<pre><code class="language-python">'Hello, %s, you are invited to a party at %s.' % (name,place)   
+</code></pre>
+<h2 id="build-in-functions">Build-in functions</h2>
+<ul>
+<li>To use a function in a given module, we need to import that moudle, python code as <code>import random</code> (for example). To call a function in that moudle, the python syntax is <code>random.randint(1,10)</code>.</li>
+<li>We can use use <code>from random import *</code>, it means import every function in a random moudle; and we do not need <code>random.</code> to use a function.</li>
+</ul>
+<pre><code class="language-python">'hello' + 'world' # string concantanation =&gt; 'hello world'
+'hello' * 3 # string * integer =&gt; &quot;hellohellohello&quot;
+len(str) # length of a string
+
+int('123') # convert a string to int =&gt; 123
+str(123) # convert a int to a string =&gt; '123'
+bool(exp) # return expression/variable is Ture/False
+
+import random
+random.randint(a,b) # a random integer from a to b
+
+import sys
+sys.exit() # Exit the current program.
+</code></pre>
+<h3 id="third-party-modules"><code>third-party</code> modules</h3>
+<ul>
+<li>To use third-party modules, we need install (via <code>pip</code>) first, and do exactly same as buildin functions.
+<ul>
+<li>use <code>pip3 install module-name</code> to install a module</li>
+<li>use <code>pip3 freeze</code> to view installed modules.</li>
+</ul>
+</li>
+<li><code>pyperclip</code> moudle
+<ul>
+<li>has function <code>copy()</code> and <code>paste()</code> reading and writing text to the clipboard.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">import pyperclip
+pyperclip.copy(&quot;Hello world&quot;) # copy hello world to clipboard
+pyperclip.paste() # paste what in clipboard
+</code></pre>
+<ul>
+<li><code>pprint</code> moudle
+<ul>
+<li><code>pprint(obj)</code>, when obj is a list or a dictionary, it will prints it in a nice way.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">import pprint
+dic = {100:'hello',110:'world'}
+pprint.pptint(dic) # prints dic
+str1 = pprint.pformat(dic) # returns a string of what `pprint` usually prints.
+</code></pre>
+<h2 id="run-a-python-program">Run a python program</h2>
+<ul>
+<li>shabang line: at the beginning of a python script, tell the OS to run the script using python.
+<ul>
+<li>&lsquo;#! /usr/bin/env python3&rsquo; in MacOS.</li>
+</ul>
+</li>
+<li>Use <code>bash script</code> to run python</li>
+</ul>
+<pre><code class="language-bash">#!/usr/bin/env bash
+python3 path
+bash
+</code></pre>
+
+              </div>
+              
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/python/python1/&amp;text=Python01%20Review" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/python/python1/&amp;t=Python01%20Review" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Python01%20Review&amp;body=/post/python/python1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/python/python1/&amp;title=Python01%20Review" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Python01%20Review%20/post/python/python1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/python/python1/&amp;title=Python01%20Review" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/zhi-wang/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q90_lanczos_center.jpg" alt="Zhi Wang">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/">Zhi Wang</a></h5>
+        <h6 class="card-subtitle">Student at University of Waterloo</h6>
+        <p class="card-text">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/gcushen" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+            </div>
+        </article>
+  
+      </main>
+    </div>
+  </div>
+  
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
